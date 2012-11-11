@@ -16,7 +16,7 @@ LoadingScreen.prototype.setUp = function()
 {
 	
 	this.mApplication.showScreen(this.mDivName)
-	var sT = getAssetPath("img","img/splash/whiteProgBar.png")
+	var sT = getAssetPath("img","splash/whiteProgBar.png")
 	for(var i=0;i<25;i++)
 		{
 			var divToAppend=document.createElement('div');
@@ -35,54 +35,55 @@ LoadingScreen.prototype.setUp = function()
 		
 	this.mGameSplashLoader = null;
 	this.mGameAssetLoader  = new PxLoader();
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image2.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image3.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image4.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image5.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image7.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image8.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image9.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/blue.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/congratsEnd.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f1.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f2.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f3.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f4.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f5.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/f6.png"));
 	
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/1.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/2.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/3.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/4.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/5.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/6.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/7.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/8.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/9.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/10.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/11.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/12.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/13.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/14.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/15.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/16.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/17.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/18.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/19.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/20.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/21.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/22.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/23.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/24.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/25.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/dummy.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/truck-graphic.png"));
-				
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/green.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/Q1_image.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","images/yellow.png"));
 	
-	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
-	this.mGameAssetLoader.addImage("img/iPhone/set10_0001_story-flash-screen-bg.png");
-	this.mGameAssetLoader.addImage("img/iPhone/playthegame-button.png");
-	this.mGameAssetLoader.addImage("img/iPhone/Play-now-button.png");
-	this.mGameAssetLoader.addImage("img/iPhone/how-to-play-screen.png");
-	this.mGameAssetLoader.addImage("img/iPhone/how-to-play-button.png");
-	this.mGameAssetLoader.addImage("img/iPhone/25years-button.png");
-	this.mGameAssetLoader.addImage("img/iPhone/back-button.png");
-	this.mGameAssetLoader.addImage("img/iPhone/set10_0000_for-screen-3-bg.png");
-	this.mGameAssetLoader.addImage("img/iPhone/set10_0002_screen-4-bg.png");
-	this.mGameAssetLoader.addImage("img/iPhone/next-question-button.png");*/
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_1_a.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_1_a_red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_1_b.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_1_b_red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_2_a.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_2_a_red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_2_b.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_2_b_red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_3_a.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_3_a_red.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","footer_images/level_1_q_4_a.png"));
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","levelend_images/Level_1.png"));
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","question_images/Level_1_q_1.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","question_images/Level_1_q_2.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","question_images/Level_1_q_3.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","question_images/Level_1_q_4.png"));
+	
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_1_image1.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_1_image2.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_1_image3.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_1_image4.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_1_image5.png"));
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_2_image4.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_2_image5.png"));
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_3_image4.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_3_image5.png"));
+	
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_4_image4.png"));
+	this.mGameAssetLoader.addImage(getAssetPath("img","sidepanel_images/level_4_image5.png"));
+	
 	var thatObject = this;
 	this.mGameAssetLoader.addProgressListener(function(e){thatObject.gameAssetLoadingProgress(e);});
 	this.mGameAssetLoader.addCompletionListener(function(){thatObject.gameAssetLoaded();});
@@ -101,7 +102,7 @@ LoadingScreen.prototype.gameAssetLoadingProgress = function (e)
 	var progressHighlighted=0;
 	var tempNum=parseInt(e.completedCount/e.totalCount*100)/4;
 	var topLimit=Math.floor(tempNum);
-	var sT = getAssetPath("img","img/splash/yellowProgBar.png")
+	var sT = getAssetPath("img","splash/yellowProgBar.png")
 	for(var x=progressHighlighted;x<topLimit;x++) 
 	{
 		document.getElementById('loadBar'+x).style.background="url('"+sT+"')";

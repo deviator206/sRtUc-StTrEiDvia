@@ -1,0 +1,372 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+}
+
+.outerDiv {
+	width: 900px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+}
+.mainDiv {
+	width: 795px;
+	height: 600px;
+	border: #CBCCCC solid 13px;
+}
+
+.hummingCloseButton {
+	position: absolute;
+	margin-top: 0px;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	margin-left: 800px;
+	margin-top: 600px;
+}
+
+.hummingBirdHolder {
+	width: 670px;
+	height: 600px;
+	margin-left: 140px;
+	margin-top: 16px;
+	z-index: 100;
+	
+}
+
+.opaqueScreenCSS {
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	position: relative;
+	float: left;
+}
+
+.overlayScreenCSS {
+	display: block;
+	position: absolute;
+	width: 900px;
+	height: 630px;
+	margin-top: -628px;
+}
+.rgtMenu {
+	width: 120px;
+	height: 626px;
+	position: absolute;
+	background-color: #CBCCCC;
+	float: right;
+	right: 0;
+	top: 0px;
+}
+
+.introScreen {
+	width: 372px;
+	height: 550px;
+	float: left;
+	margin-top: 30px;
+	margin-left: 17px;
+	font-size: 14px;
+}
+
+.introScreen ul {
+	margin: 59px 0 0 43px;
+	padding: 0;
+}
+
+.introScreen li {
+	margin: 0 5px 0 0;
+	font-size: 14px;
+	color: #666;
+	line-height: 17px;
+}
+
+.introScreen p {
+	line-height: 20px;
+}
+
+.intropara {
+	margin-left: 30px;
+}
+
+.introImgs {
+	width: 135px;
+	height: 135px;
+	float: left;
+	padding: 14px;
+	margin: 10px;
+}
+
+.playButton {
+	background-color: #CCCCCC;
+	color: #666;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	height: 43px;
+	line-height: 40px;
+	margin-left: 15px;
+	margin-top: 33px;
+	position: static;
+	text-align: center;
+	width: 131px;
+	cursor: pointer;
+}
+
+.playButton:hover {
+	background-color: #666;
+	color: #FFF;
+}
+
+.figTitle {
+	font-size: 11px;
+	font-weight: bold;
+	margin-left: 17px;
+	margin-top: 5px;
+}
+
+.hwpList ol {
+	margin: 59px 0 0 43px;
+	padding: 0;
+}
+
+.hwpList li {
+	margin: 0 18px 0 20px;
+	font-size: 16px;
+	color: #666;
+	line-height: 27px;
+}
+
+.howToPlayPara {
+	margin-left: 43px;
+	font-size: 16px;
+	color: #666;
+	line-height: 22px;
+}
+
+.backButton {
+	background-color: #CCCCCC;
+	color: #666;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	height: 43px;
+	line-height: 40px;
+	margin-left: 43px;
+	margin-top: 17px;
+	position: static;
+	text-align: center;
+	width: 100px;
+	cursor: pointer;
+}
+
+.backButton:hover {
+	background-color: #666;
+	color: #FFF;
+}
+
+.howPlayBtn {
+	margin-left: 17px;
+	margin-top: 17px;
+}
+
+.congEndTxt {
+	color: #3F8FCC;
+	margin-top: 60px;
+	margin-left: 60px;
+}
+
+.congEndPara {
+	margin-left: 60px;
+	font-size: 22px;
+	color: #DC4510;
+	line-height: 18px;
+}
+
+.clickButton {
+	background-color: #CCCCCC;
+	color: #666;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	height: 43px;
+	line-height: 40px;
+	margin-left: 43px;
+	margin-top: 17px;
+	position: static;
+	text-align: center;
+	width: 300px;
+	cursor: pointer;
+}
+
+.clickButton:hover {
+	background-color: #666;
+	color: #FFF;
+}
+
+.levelEndImg {
+	width: 78%;
+	background-repeat: no-repeat;
+	height: 330px;
+	position: absolute;
+	margin-left: 470px;
+	margin-top: 100px;
+	display: inline-block;
+}
+.peacockImg {
+	/*background:url(../images/congratsEnd.png) no-repeat;*/
+	height: 276px;
+	width: 492px;
+	float: right;
+	margin-top: -23px;
+}
+
+.successTxt {
+	margin-left: 60px;
+	font-size: 24px;
+	color: #666;
+	line-height: 8px;
+}
+
+.successTxt span {
+	color: #DC4510;
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.congEndTxt2 {
+	color: #3F8FCC;
+	margin-top: 50px;
+	margin-left: 60px;
+	font-size: 40px;
+}
+
+.levlComplTxt {
+	font-size: 18px;
+	line-height: 25px;
+	color: #DC4510;
+	margin-left: 60px;
+}
+
+.nextButton {
+	background-color: #CCCCCC;
+	color: #666;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	height: 43px;
+	line-height: 40px;
+	margin-left: 60px;
+	margin-top: 17px;
+	position: static;
+	text-align: center;
+	width: 140px;
+	cursor: pointer;
+}
+
+.nextButton:hover {
+	background-color: #666;
+	color: #FFF;
+}
+
+.nxtLink a:link, a:visited, a:hover, a:active {
+	font-size: 18px;
+	line-height: 25px;
+	color: #DC4510;
+	margin-left: 60px;
+	font-weight: bold;
+}
+/*------ QUESTION DISPLAY SCREEN -------*/
+.levelTxt {
+	height: 20px;
+	position: absolute;
+	top: 52px;
+	font-size: 17px;
+	margin-left: 30px;
+}
+
+.qCont {
+	position: relative;
+	float: left;
+	height: auto;
+	width: 95%;
+	top: 100px;
+	left: 23px;
+}
+
+.levelTxt span {
+	font-weight: bold;
+}
+
+.questDiv {
+	width: 300px;
+	height: auto;
+	margin: 10px;
+	position: relative;
+}
+
+.quesTxt {
+	color: #A0B3D3;
+	font-size: 22px;
+	position: relative;
+	float: left;
+}
+
+.ansBox {
+	position: relative;
+	height: auto;
+	float: left;
+	width: 100%;
+}
+
+.ansTxt {
+	color: #666;
+	font-size: 17px;
+	font-weight: bold;
+	position: relative;
+	margin: 23px;
+	margin-left: 0;
+	padding: 3px;
+}
+
+.ansTxt:hover {
+	color: #DC4510;
+	cursor: pointer;
+}
+
+.qeusImg {
+	width: 390px;
+	height: auto;
+	position: relative;
+	float: left;
+}
+
+.perc {
+	color: #777;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 28px;
+	text-align: center;
+}
+
+.perc span {
+	color: #FFFFFF;
+	font-size: 41px;
+}
+
+.footer {
+	height: 100px;
+	width: 687px;
+	bottom: 0px;
+	border-top: 2px #CBCCCC solid;
+	position: absolute;
+	top: 502px;
+	left: 35px;
+}
+
+.footer img {
+	position: relative;
+	margin-right: 30px;
+	margin-top: 17px;
+}
+

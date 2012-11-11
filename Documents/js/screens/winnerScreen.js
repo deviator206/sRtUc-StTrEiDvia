@@ -17,35 +17,28 @@ WinnerScreen.prototype.setUp = function()
 {
 	var that = this;
 	this.mApplication.showScreen(this.mDivName)
-	this.mApplication.showSelectedScreen('grey_bottom');	
-	
-		var nCurrentScore = Number(this.mApplication.nQuizScore);
-			var nBenchmark = Number(this.mApplication.nBenchmarkScore);
-			
-			var v1 =''
-			var v2 =''
-			if(nCurrentScore >=  nBenchmark)
-			{
-				v1 ='Congratulations!'
-				v2 ='You have won the Silver star'
-			}
-			else
-			{
-				v1 ='Oops!'
-				v2 ='Try Again'
-			}	
-	var sContent = '<div id="final_screen" class="finalScreen"><div id="game_screen_logo_5" class="gameScreenLogo"></div><div class="congratsTxt">'+v1+'</div><div class="conMsg">'+v2+'</div></div>'
-	
-	document.getElementById('winnerScreen').innerHTML = ''+sContent;
-	var sT = getAssetPath("img","img/images/image4.png");
-	document.getElementById('game_screen_logo_5').style.backgroundImage = "url('"+sT+"')";	
-	var sT1 = getAssetPath("img","img/images/image7.png");
-	document.getElementById('final_screen').style.backgroundImage = "url("+sT1+")";
-	/*document.getElementById('correct_next_question').onclick= function()
+	//this.mApplication.showSelectedScreen('grey_bottom');
+	var sContentHTML = "";
+	sContentHTML = '<h1 class="congEndTxt">CONGRATULATIONS</h1>';		
+            sContentHTML += '<p class="congEndPara">';
+            	sContentHTML += 'You are now a master!';
+            sContentHTML += '</p>';
+             sContentHTML += '<p class="congEndPara">';
+            	sContentHTML += '<b>Join us in building a High Performance Nation.</b>';
+            sContentHTML += '</p>';
+            
+            sContentHTML += '<div id= "learn_more" class="clickButton">Click here to learn more!</div>';
+            
+            sContentHTML += '<div id="peacockContainer" class="peacockImg" style="ba"></div>';
+            
+    
+	document.getElementById('winnerScreen').innerHTML = ''+sContentHTML;
+	var sT = getAssetPath("img","images/congratsEnd.png");
+	document.getElementById('peacockContainer').style.backgroundImage = 'url('+sT+ ')'
+	document.getElementById('learn_more').onclick= function()
 	{
-		
-		that.mApplication.setGameState(120);		
+		that.mApplication.setGameState(140);		
 		that.mApplication.nextTransition();
-	};*/
+	};
 	
 }

@@ -1,243 +1,177 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-		
-    </head>
-    <body>
-		
-		
-			<script type='text/javascript'>
-						/* STARTING POINT*/
-						var _gMainApplication
-						var documentPath="Documents/";
-						var imagesPath="PublishingImages/";
-						var selfPath="../";
-						function getAssetPath (sType,str)
-						{
-							var sTemp=selfPath;
-							console.log(': sType:'+sType)
-							switch(sType)
-							{
-								case "docs":
-								sTemp +=""+documentPath
-								break;
-								case "img":
-								console.log( ' STR '+str);
-								str = str.replace("img/","");
-								console.log( ' STR.. '+str);
-								sTemp +=""+imagesPath
-								break;
-							}
-							sTemp +=""+str;		
-							return sTemp;
-						}
-						
-						
-						var arrScriptTags = new Array('css/normalize.css','css/main.css','css/allinone_carousel.css','js/lib/jquery-1.3.2.min.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
-						var arrScriptIndex = 0;
-						var arrDivNames = new Array('loading_script_tags','passwordScreen','loadingScreen','splashScreen','menuScreen','howtoplayScreen','carouselScreen','grey_bottom','gameplayScreen','correctanswerScreen','wronganswerScreen','winnerScreen')
-						function makeAllInvisible()
-						{
-							for(var i=0;i<arrDivNames.length;i++)
-							document.getElementById(arrDivNames[i]).style.display ='none'
-						}					
-						function startLoadingAssets()
-						{
-							if(arrScriptIndex ==0)
-							{
-								//makeAllInvisible();
-								document.getElementById('main_game_screen').style.display ="none"
-								document.getElementById('loading_script_tags').style.display ="block"
-							}
-							
-						
-							if(arrScriptIndex < arrScriptTags.length)
-							{
-								if(arrScriptIndex<3)
-								{
-									AddCSS(getAssetPath("docs",arrScriptTags[arrScriptIndex]),startLoadingAssets);
-								}
-								else
-								{
-									AddScript(getAssetPath("docs",arrScriptTags[arrScriptIndex]),startLoadingAssets);
-								}
-								
-								arrScriptIndex++;
-							}
-							else
-							{
-					 				document.getElementById('main_game_screen').style.display ="block"	
-								  document.getElementById('loading_script_tags').style.display ="none"
-									_gMainApplication = new ApplicationWrapper();
-									_gMainApplication.setUp({screenNames:arrDivNames})
-									_gMainApplication.nextTransition();
-								
-							}
-						}
-					
-					function AddCSS(url, callback) 
-					{
-						var script =null;
-						script   = document.createElement('link');
-						script.href   = url;
-						script.rel ="stylesheet";
-						script.type  = 'text/css';
-						script.defer = false;
-						
-						if (typeof callback != "undefined" && callback != null) {
-					 
-							// IE only, connect to event, which fires when JavaScript is loaded
-							script.onreadystatechange = function() {
-								if (this.readyState == 'complete' || this.readyState == 'loaded') {
-									this.onreadystatechange = this.onload = null; // prevent duplicate calls
-									callback();
-								}
-							}
-					 
-							// FireFox and others, connect to event, which fires when JavaScript is loaded
-							script.onload = function() {
-								this.onreadystatechange = this.onload = null; // prevent duplicate calls
-								
-								callback();
-							};
-						}
-					 
-						var head = document.getElementsByTagName('head').item(0);
-						head.appendChild(script);
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+
+		<script type='text/javascript'>
+			/* STARTING POINT*/
+			var _gMainApplication
+			var documentPath = "Documents/";
+			var imagesPath = "PublishingImages/";
+			var selfPath = "../";
+			function getAssetPath(sType, str) {
+				var sTemp = selfPath;
+				switch(sType) {
+					case "docs":
+						sTemp += "" + documentPath
+						break;
+					case "img":
+						//console.log(' STR ' + str);
+						str = str.replace("img/", "");
+						sTemp += "" + imagesPath
+						break;
+				}
+				sTemp += "" + str;
+				return sTemp;
+			}
+
+			var arrScriptTags = new Array('css/style.css', 'js/lib/PxLoader.js', 'js/lib/PxLoaderImage.js', 'js/model.js', 'js/screens/loadingScreen.js', 'js/screens/splashScreen.js', 'js/screens/howtoplayScreen.js', 'js/screens/gameplayScreen.js', 'js/screens/levelEndScreen.js', 'js/screens/winnerScreen.js', 'js/application.js');
+			var arrScriptIndex = 0;
+			var arrDivNames = new Array('loading_script_tags', 'loadingScreen', 'splashScreen', 'howtoplayScreen', 'questionScreen', 'sidePanel', 'levelEndScreen', 'winnerScreen', 'overlayScreen')
+			function makeAllInvisible() {
+				for (var i = 0; i < arrDivNames.length; i++)
+					document.getElementById(arrDivNames[i]).style.display = 'none'
+			}
+
+			function startLoadingAssets() {
+				if (arrScriptIndex == 0) {
+					//makeAllInvisible();
+					document.getElementById('appContainer').style.display = "none"
+					document.getElementById('loading_script_tags').style.display = "block"
+				}
+
+				if (arrScriptIndex < arrScriptTags.length) {
+					if (arrScriptIndex < 1) {
+						AddCSS(getAssetPath("docs", arrScriptTags[arrScriptIndex]), startLoadingAssets);
+					} else {
+						AddScript(getAssetPath("docs", arrScriptTags[arrScriptIndex]), startLoadingAssets);
 					}
-			
-			
-					function AddScript(url, callback) 
-					{
-						var script =null;
-								script   = document.createElement('script');
-								script.src   = url;
-								script.type  = 'text/javascript';	
-								script.defer = false;
-						
-						
-					 
-						if (typeof callback != "undefined" && callback != null) {
-					 
-							// IE only, connect to event, which fires when JavaScript is loaded
-							script.onreadystatechange = function() {
-								if (this.readyState == 'complete' || this.readyState == 'loaded') {
-									this.onreadystatechange = this.onload = null; // prevent duplicate calls
-									callback();
-								}
-							}
-					 
-							// FireFox and others, connect to event, which fires when JavaScript is loaded
-							script.onload = function() {
-								this.onreadystatechange = this.onload = null; // prevent duplicate calls
-								
-								callback();
-							};
+
+					arrScriptIndex++;
+				} else {
+					document.getElementById('appContainer').style.display = "block"
+					document.getElementById('loading_script_tags').style.display = "none"
+					_gMainApplication = new ApplicationWrapper();
+					_gMainApplication.setUp({
+						screenNames : arrDivNames
+					})
+					_gMainApplication.nextTransition();
+
+				}
+			}
+
+			function AddCSS(url, callback) {
+				var script = null;
+				script = document.createElement('link');
+				script.href = url;
+				script.rel = "stylesheet";
+				script.type = 'text/css';
+				script.defer = false;
+
+				if ( typeof callback != "undefined" && callback != null) {
+
+					// IE only, connect to event, which fires when JavaScript is loaded
+					script.onreadystatechange = function() {
+						if (this.readyState == 'complete' || this.readyState == 'loaded') {
+							this.onreadystatechange = this.onload = null;
+							// prevent duplicate calls
+							callback();
 						}
-					 
-						var head = document.getElementsByTagName('head').item(0);
-						head.appendChild(script);
 					}
-					
-					window.addEventListener ? window.addEventListener("load", startLoadingAssets, false) : window.attachEvent && window.attachEvent("onload", startLoadingAssets);
-			
-			</script>
-			<div id='viewporter' >
-				<div class="outerDiv">
-				<div id="loading_script_tags" style="width:905px;
-		height:600px;
-		margin:0 auto;
-		color:white;
-		background-color:black;">  <span style="margin-left: 325px;
-margin-top: 240px;
-position: absolute;
-font-size: 50px;">Initializing...</span>	</div>
-				<div id='main_game_screen' class="mainDiv" style="display:none;">
-					<div id='passwordScreen'>
+					// FireFox and others, connect to event, which fires when JavaScript is loaded
+					script.onload = function() {
+						this.onreadystatechange = this.onload = null;
+						// prevent duplicate calls
+
+						callback();
+					};
+				}
+
+				var head = document.getElementsByTagName('head').item(0);
+				head.appendChild(script);
+			}
+
+			function AddScript(url, callback) {
+				var script = null;
+				script = document.createElement('script');
+				script.src = url;
+				script.type = 'text/javascript';
+				script.defer = false;
+
+				if ( typeof callback != "undefined" && callback != null) {
+
+					// IE only, connect to event, which fires when JavaScript is loaded
+					script.onreadystatechange = function() {
+						if (this.readyState == 'complete' || this.readyState == 'loaded') {
+							this.onreadystatechange = this.onload = null;
+							// prevent duplicate calls
+							callback();
+						}
+					}
+					// FireFox and others, connect to event, which fires when JavaScript is loaded
+					script.onload = function() {
+						this.onreadystatechange = this.onload = null;
+						// prevent duplicate calls
+
+						callback();
+					};
+				}
+
+				var head = document.getElementsByTagName('head').item(0);
+				head.appendChild(script);
+			}
+
+
+			window.addEventListener ? window.addEventListener("load", startLoadingAssets, false) : window.attachEvent && window.attachEvent("onload", startLoadingAssets);
+
+		</script>
+		<div id='viewporter' >
+			<div class="outerDiv">
+				<div class="mainDiv">
+					<div id="loading_script_tags" style="width:905px;
+					height:600px;
+					margin:0 auto;
+					color:white;
+					background-color:black;">
+						<span style="margin-left: 325px;
+						margin-top: 240px;
+						position: absolute;
+						font-size: 50px;">Initializing...</span>
+
+					</div>
+
+					<div id="appContainer">
+						<div id="loadingScreen" style="display: block;margin-left: 200px;margin-top: 200px;"></div>
+						<div id="splashScreen"></div>
+						<div id="howtoplayScreen"></div>
+						<div id="questionScreen"></div>
+						<div id="levelEndScreen"></div>
+						<div id="winnerScreen"></div>
+
+					</div>
+
+				</div>
+				<div id="sidePanel"></div>
+				<div id="overlayScreen" class="overlayScreenCSS">
+
+					<!--<div id="opaqueScreen" class="opaqueScreenCSS"></div>
+					<div id="origamiholder" class="hummingBirdHolder">
 						
+
 					</div>
-					<div id='loadingScreen' align='center' >
-									
-					</div>
-					<div id="splashScreen" class="screen">
-						<div id="25yrslogo" class="headerlogo"></div>
-						<div class="screen1Txt">
-								To celebrate Accenture's 25 years in India, we've created Secrets of<br/>
-								Success to demonstrate the successes our clients have achieved here<br />
-								and abroad during that time. It's simple to play, but a challenge to win.<br />
-								Just pich a card. You will be presented with a question and four possible<br />
-								answers. You'll receive 10 points for each correct answer.
-						</div>
-						<div class="eneterGameButton button" id="enterGame">Enter the game</div>
-					</div>
-					
-					<!--  MENU SCREEN -->
-					<div id="menuScreen" class="screen">
-						<div id="screen_2_logo" class="screen2Logo"></div>
-						<div class="buttonsDiv">
-							<div id='how_to_play' class="howToPlayButton button">How to play</div>
-							<div id='play_the_game' class="playGameButton button">Play the game</div>
-						</div>
-						<div id='carousel_2_img' class="caraousalCardImg"></div>
-					</div>
-					
-					<!-- HOW TO PLAY -->
-					<div id="howtoplayScreen" class="screen">
-						<div class="howToPlayDiv">
-							<b>How to play</b><br /><br />
-							<ol style="margin-left: -18px;">
-							  <li>Anser few questions and make your way through the game</li>
-							  <li>Choose the right answer from the givenset of options</li>
-							  <li>The clock keeps ticking away as you answer</li>
-							  <li>Every correct answer gets you points</li>
-							  <li>There is no negative marking for the wrong answer</li>
-							  <li>Maximum correct answers will get you maximum points</li>
-							</ol>
-							<br />
-							<p>So are you ready to get the story started?</p>
-						</div>
-						<div class="buttonsDivPage3">
-							<div id="instruction_back" class="backButton button">Back</div>
-							<div id="instruction_play" class="playButton button" style="margin-left:15px;">Play now</div>
-						</div>
-						<div id="carousel_3_img" class="caraousalCardImgPage3"></div>
-					</div>
-					
-					<!-- CAROUSEL SCREEN -->
-					 <div id="carouselScreen" class="screen">
-							<div class="caraousalDiv_2">
-							<div id="containingDiv">
-							<div id="allinone_carousel_charming">
-							 </div>
-						 </div>  
-							
-							
-							</div>
-						</div>
-						
-						<!-- QUESTION -->
-					 <div id="gameplayScreen" class="screen">		</div>
-					 <div id="correctanswerScreen" class="screen">
-						
-					</div>
-					 <div id="wronganswerScreen" class="screen">
-						
-					</div>
-					<div id="winnerScreen" class="screen">
-						
-					</div>
-						<div id="grey_bottom" class="greyBottom">
-							<div class="timeLeftDiv"><span class="footerTxt">Time left:</span> <span id="timer_txt" class="footerNum">00</span></div>
-							<div class="pointsDiv"><span class="footerTxt">Points:</span> <span  id="score_txt" class="footerNum">000</span></div>
-							<div class="backButtonDiv"><div id='carousel_back'class="backButtonFooter button">Back</div></div>
-						</div>
-					   
+					<div id="origamiImageCloseButton" class="hummingCloseButton">
+						CLOSE
+					</div>-->
+				</div>
 			</div>
-			</div>
-			
-			</div>			
+
+		</div>
 	</body>
 </html>
