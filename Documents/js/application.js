@@ -83,7 +83,7 @@ ApplicationWrapper.prototype.startGameTimer = function(i)
 	var that = this;
 	this.nQuizTimeCntr=120;
 	this.nQuizScore=0;
-	this.nQuestionIndex = Math.floor(Math.random()*config.questionSet.length-1);
+	this.nQuestionIndex =  Math.floor(Math.random()*config.questionSet.length-1);
 	
 	//console.log(' Randomly Selected '+this.nQuestionIndex)
 	if(Number(this.nQuestionIndex) > 12)
@@ -170,6 +170,7 @@ function ApplicationWrapper()
 	this.nBenchmarkScore =100;
 	this.bcarouselCreated = false;
 	this.arrQuestion = null;
+	this.arrImagesTrack = {}
 	return this;
 }
 

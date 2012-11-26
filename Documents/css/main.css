@@ -247,6 +247,7 @@ textarea {
 	bottom: 15px;
 	right: 15px;
 	float: left;
+	background-repeat: no-repeat;
 }
 /* Screen 2 end */
 
@@ -424,8 +425,8 @@ textarea {
 
 
 .gameImg{
-	height:400px;
-	width:300px;
+	/*height:400px;
+	width:300px;*/
 	position:relative;
 	top:73px;
 	left:34px;

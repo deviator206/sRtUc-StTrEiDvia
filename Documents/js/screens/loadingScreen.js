@@ -70,6 +70,32 @@ LoadingScreen.prototype.setUp = function()
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/25.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/dummy.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/truck-graphic.png"));
+	
+	this.mApplication.arrImagesTrack = {}
+	this.mApplication.arrImagesTrack['Q_1'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_1-Tata-ACE.png"));
+	this.mApplication.arrImagesTrack['Q_2'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_2-VVF.png"));
+	this.mApplication.arrImagesTrack['Q_3'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_3-Caterpillar.png"));
+	this.mApplication.arrImagesTrack['Q_4'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_4-Mariotte.png"));
+	this.mApplication.arrImagesTrack['Q_5'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_5-Unilever.png"));
+	this.mApplication.arrImagesTrack['Q_6'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_6-PandG.png"));
+	this.mApplication.arrImagesTrack['Q_7'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_7-Trinity-Health.png"));
+	this.mApplication.arrImagesTrack['Q_8'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_8-BSES_image.png"));
+	this.mApplication.arrImagesTrack['Q_9'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_9-Piramal-Healthcare.png"));
+	this.mApplication.arrImagesTrack['Q_10'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_10-New-York-City-311.png"));
+	this.mApplication.arrImagesTrack['Q_11'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_11-Tata-Chemicals.png"));
+	this.mApplication.arrImagesTrack['Q_12'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_12-United-Spirits.png"));
+	this.mApplication.arrImagesTrack['Q_13'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_13-Tota-Motors-Rural.png"));
+	this.mApplication.arrImagesTrack['Q_14'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_14-Engineers-India_image.png"));
+	this.mApplication.arrImagesTrack['Q_15'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_15-LandT-Komatsu_image.png"));
+	this.mApplication.arrImagesTrack['Q_16'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_16-LandT-Power.png"));
+	this.mApplication.arrImagesTrack['Q_17'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_17-Wizard-of-OZ.png"));
+	this.mApplication.arrImagesTrack['Q_18'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_18-Royal-Shakespeare.png"));
+	this.mApplication.arrImagesTrack['Q_19'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_19-BPCL.png"));
+	this.mApplication.arrImagesTrack['Q_20'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_20-Manipur-Govt.png"));
+	
+	
+	
+	
 				
 	
 	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
