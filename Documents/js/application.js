@@ -83,10 +83,10 @@ ApplicationWrapper.prototype.startGameTimer = function(i)
 	var that = this;
 	this.nQuizTimeCntr=120;
 	this.nQuizScore=0;
-	this.nQuestionIndex =  Math.floor(Math.random()*config.questionSet.length-1);
+	this.nQuestionIndex =  14//Math.floor(Math.random()*config.questionSet.length-1);
 	
-	//console.log(' Randomly Selected '+this.nQuestionIndex)
-	if(Number(this.nQuestionIndex) > 12)
+	
+	if(Number(this.nQuestionIndex) > 19)
 	this.nQuestionIndex =0;
 	if(Number(this.nQuestionIndex) < 0)
 	this.nQuestionIndex = 0

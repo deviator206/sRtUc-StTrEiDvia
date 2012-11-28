@@ -648,7 +648,7 @@
 				//jQuery('#carouselParent_'+randomNo).css('overflow','hidden');
 				//jQuery('#carouselParent_'+randomNo).css('border','1px solid #ff0000');
 				
-				allinone_carousel_container.css('cursor','url(skins/hand.cur),url(skins/hand.cur),move');
+				//allinone_carousel_container.css('cursor','url(skins/hand.cur),url(skins/hand.cur),move');
 				allinone_carousel_container.css('left','0px');
 				allinone_carousel_container.css('position','absolute');
 

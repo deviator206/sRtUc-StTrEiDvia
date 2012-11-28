@@ -18,16 +18,16 @@
 						function getAssetPath (sType,str)
 						{
 							var sTemp=selfPath;
-							console.log(': sType:'+sType)
+							//console.log(': sType:'+sType)
 							switch(sType)
 							{
 								case "docs":
 								sTemp +=""+documentPath
 								break;
 								case "img":
-								console.log( ' STR '+str);
+								//console.log( ' STR '+str);
 								str = str.replace("img/","");
-								console.log( ' STR.. '+str);
+								//console.log( ' STR.. '+str);
 								sTemp +=""+imagesPath
 								break;
 							}

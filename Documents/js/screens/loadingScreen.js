@@ -94,8 +94,8 @@ LoadingScreen.prototype.setUp = function()
 	this.mApplication.arrImagesTrack['Q_20'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_20-Manipur-Govt.png"));
 	
 	
-	
-	
+	this.mApplication.arrImagesTrack['next-question-overlay'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question_overlay.jpg"));
+	this.mApplication.arrImagesTrack['next-question-normal'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question.png"));
 				
 	
 	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
