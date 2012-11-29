@@ -35,43 +35,46 @@ LoadingScreen.prototype.setUp = function()
 		
 	this.mGameSplashLoader = null;
 	this.mGameAssetLoader  = new PxLoader();
+	this.mApplication.arrImagesTrack = {}
+	
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image2.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image3.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image4.png"));
+	this.mApplication.arrImagesTrack['menu_screen_carousel'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image3.png"));
+	this.mApplication.arrImagesTrack['menu_screen_logo'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image4.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image5.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image7.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image8.png"));
 	this.mGameAssetLoader.addImage(getAssetPath("img","img/images/image9.png"));
 	
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/1.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/2.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/3.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/4.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/5.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/6.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/7.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/8.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/9.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/10.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/11.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/12.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/13.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/14.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/15.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/16.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/17.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/18.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/19.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/20.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/21.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/22.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/23.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/24.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/25.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/dummy.png"));
-	this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/truck-graphic.png"));
 	
-	this.mApplication.arrImagesTrack = {}
+	
+	this.mApplication.arrImagesTrack['C_1'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/1.png"));
+	this.mApplication.arrImagesTrack['C_2'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/2.png"));
+	this.mApplication.arrImagesTrack['C_3'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/3.png"));
+	this.mApplication.arrImagesTrack['C_4'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/4.png"));
+	this.mApplication.arrImagesTrack['C_5'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/5.png"));
+	this.mApplication.arrImagesTrack['C_6'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/6.png"));
+	this.mApplication.arrImagesTrack['C_7'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/7.png"));
+	this.mApplication.arrImagesTrack['C_8'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/8.png"));
+	this.mApplication.arrImagesTrack['C_9'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/9.png"));
+	this.mApplication.arrImagesTrack['C_10'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/10.png"));
+	this.mApplication.arrImagesTrack['C_11'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/11.png"));
+	this.mApplication.arrImagesTrack['C_12'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/12.png"));
+	this.mApplication.arrImagesTrack['C_13'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/13.png"));
+	this.mApplication.arrImagesTrack['C_14'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/14.png"));
+	this.mApplication.arrImagesTrack['C_15'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/15.png"));
+	this.mApplication.arrImagesTrack['C_16'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/16.png"));
+	this.mApplication.arrImagesTrack['C_17'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/17.png"));
+	this.mApplication.arrImagesTrack['C_18'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/18.png"));
+	this.mApplication.arrImagesTrack['C_19'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/19.png"));
+	this.mApplication.arrImagesTrack['C_20'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/20.png"));
+	this.mApplication.arrImagesTrack['C_21'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/21.png"));
+	this.mApplication.arrImagesTrack['C_22'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/22.png"));
+	this.mApplication.arrImagesTrack['C_23'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/23.png"));
+	this.mApplication.arrImagesTrack['C_24'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/24.png"));
+	this.mApplication.arrImagesTrack['C_25'] =this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/25.png"));
+	
+	
+	
 	this.mApplication.arrImagesTrack['Q_1'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_1-Tata-ACE.png"));
 	this.mApplication.arrImagesTrack['Q_2'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_2-VVF.png"));
 	this.mApplication.arrImagesTrack['Q_3'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_3-Caterpillar.png"));
@@ -94,7 +97,7 @@ LoadingScreen.prototype.setUp = function()
 	this.mApplication.arrImagesTrack['Q_20'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/images/question/Q_20-Manipur-Govt.png"));
 	
 	
-	this.mApplication.arrImagesTrack['next-question-overlay'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question_overlay.jpg"));
+	this.mApplication.arrImagesTrack['next-question-overlay'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question_overlay.png"));
 	this.mApplication.arrImagesTrack['next-question-normal'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question.png"));
 				
 	

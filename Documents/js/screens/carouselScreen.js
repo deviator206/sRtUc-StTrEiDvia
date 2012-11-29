@@ -25,17 +25,27 @@ CarouselScreen.prototype.setUp = function()
 		this.mApplication.bcarouselCreated = true;
 		 
 		 
-		var sContent = '<div class="myloader"></div><ul class="allinone_carousel_list" style="background-color:#999966;">'
-		for(var i =1;i<10;i++)
+		var sContent = '<div class="myloader"></div><ul  id ="carousel_ul_li_holder" class="allinone_carousel_list" style="background-color:#999966;">'
+		document.getElementById('allinone_carousel_charming').innerHTML= sContent;
+		for(var i =1;i<=25;i++)
 		{
-			var km = getAssetPath("img","img/iPhone/"+i+".png")
-			sContent +='<li ><img class="reflectBelow" src="'+km+'" alt="" id="li_'+i+'" width="200" /></li>'
+			//var km = getAssetPath("img","img/iPhone/"+i+".png");
+			var ele = document.createElement('li');
+			ele.setAttribute('id',"li_ele_"+i)
+			document.getElementById('carousel_ul_li_holder').appendChild(ele);
+			var mObj = this.mApplication.arrImagesTrack["C_"+i];
+			mObj.setAttribute('id',"li_"+i);
+			mObj.setAttribute('width',"200");
+			mObj.setAttribute('class',"reflectBelow");
+			ele.appendChild(mObj);
+			
+			//sContent +='<li ><img class="reflectBelow" src="'+km+'" alt="" id="li_'+i+'" width="200" /></li>'
 		}
 		/*
 		<li ><img class="reflectBelow" src="img/iPhone/1.png" alt="" id="li_1" width="200" /></li> <li><img src="img/iPhone/2.png" alt=""  id="li_2" /></li><li><img src="img/iPhone/3.png" alt=""  id="li_3" /></li><li><img src="img/iPhone/4.png" alt=""   id="li_4"/></li><li><img src="img/iPhone/5.png" alt=""  id="li_5"/></li><li><img  src="img/iPhone/6.png" alt="" id="li_6"/></li><li><img src="img/iPhone/7.png"   alt=""  id="li_7"/></li><li><img src="img/iPhone/8.png"  alt=""  id="li_8"/></li><li><img src="img/iPhone/9.png"  alt=""  id="li_9"/></li><li><img src="img/iPhone/10.png" alt=""   id="li_10"/></li></ul>'	*/
 		//carousel_dev
 		//allinone_carousel_charming
-		document.getElementById('allinone_carousel_charming').innerHTML= sContent;
+		
 		/*for(var i=1;i<11;i++)
 		{
 			var select = document.getElementById('li_'+1);

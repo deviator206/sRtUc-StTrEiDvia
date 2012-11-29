@@ -121,6 +121,8 @@ textarea {
 	width:902px;
 	height:619px;
 	margin:0 auto;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select:none;
 }
 .mainDiv{
 	
@@ -438,14 +440,14 @@ textarea {
 	width:350px;
 	position:relative;
 	float:right;
-	top:30px;
+	top:45px;
 	right:91px;
 	/*border:#9C201E solid 1px;*/
 }
 .questionTxt p{
 	font-size:26px;
 	font-weight:bold;
-	color: #992222;
+	color: #992222 !Important;
 	font-family: Arial Bold !Important;
 }
 
@@ -454,7 +456,7 @@ textarea {
 	width:350px;
 	position:relative;
 	float:right;
-	top:50px;
+	top:65px;
 	right:91px;
 	font-family: Arial Regular !Important;
 	/*border:#9C201E solid 1px;*/
@@ -489,7 +491,7 @@ textarea {
 	width:400px;
 	position:relative;
 	float:right;
-	top:15px;
+	top:30px;
 	right:40px;
 	/*font-family:  RotisSansSerifforACCN Bold!Important;
 	
