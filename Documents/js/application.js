@@ -100,8 +100,8 @@ ApplicationWrapper.prototype.startGameTimer = function(i)
 			that.nGameState = 130;		
 			that.nextTransition()
 		}
-		document.getElementById('timer_txt').innerHTML=' '+that.nQuizTimeCntr;
-		document.getElementById('score_txt').innerHTML=' '+that.nQuizScore;
+		document.getElementById('timer_txt').innerHTML=''+that.nQuizTimeCntr;
+		document.getElementById('score_txt').innerHTML=''+that.nQuizScore;
 	
 		
 	},1000);

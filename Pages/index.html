@@ -298,6 +298,7 @@
 					}
 
 				} else {
+				document.onmouseover = function(evt){evt.preventDefault()};
 					document.getElementById('main_game_screen').style.display = "block"
 					document.getElementById('loading_script_tags').style.display = "none"
 					_gMainApplication = new ApplicationWrapper();
@@ -490,10 +491,10 @@
 					</div>
 					<div id="grey_bottom" class="greyBottom">
 						<div class="timeLeftDiv">
-							<span class="footerTxt">Time left:</span><span id="timer_txt" class="footerNum">00</span>
+							<span class="footerTxt">Time left:&nbsp;</span><span id="timer_txt" class="footerNum">00</span>
 						</div>
 						<div class="pointsDiv">
-							<span class="footerTxt">Points:</span><span  id="score_txt" class="footerNum">000</span>
+							<span class="footerTxt">Points:&nbsp;</span><span  id="score_txt" class="footerNum">000</span>
 						</div>
 						<div class="backButtonDiv">
 							<div id='carousel_back'class="backButtonFooter button">
