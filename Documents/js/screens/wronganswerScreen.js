@@ -54,4 +54,5 @@ WrongAnswerScreen.prototype.setUp = function() {
 
 		document.getElementById('wrong_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
 	}
+	this.mApplication.loadMiniCarousel();
 }

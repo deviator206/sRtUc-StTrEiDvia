@@ -58,4 +58,5 @@ CorrectAnswerScreen.prototype.setUp = function() {
 		that.mApplication.nextTransition();
 	};
 
+	this.mApplication.loadMiniCarousel();
 }

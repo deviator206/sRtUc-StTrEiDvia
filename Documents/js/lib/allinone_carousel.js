@@ -3,7 +3,7 @@
 	var arrowClicked = false;
 
 	// navigation
-	function allinone_carousel_navigation(direction, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle) {
+	function allinone_carousel_navigation_SMALL(direction, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle) {
 
 		var new_width;
 		var new_height;
@@ -11,62 +11,62 @@
 		var new_top;
 		//reinit content to stop videos
 		if (jQuery(imgs[current_obj.current_img_no]).attr('data-video') == 'true')
-			jQuery('#contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container).html(jQuery(imgs[current_obj.current_img_no]).html());
+			jQuery('#SM_contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container).html(jQuery(imgs[current_obj.current_img_no]).html());
 
 		//deactivate previous
-		jQuery(bottomNavButs[current_obj.current_img_no]).removeClass('bottomNavButtonON');
+		jQuery(bottomNavButs[current_obj.current_img_no]).removeClass('bottomNavButtonON_SM');
 
 		//set current img no
-		current_obj.current_img_no = set_img_no(current_obj.current_img_no, direction, total_images);
+		current_obj.current_img_no = set_img_no_SMALL(current_obj.current_img_no, direction, total_images);
 		//alert(current_obj.current_img_no)
 
 		if (jQuery(imgs[current_obj.current_img_no]).attr('data-video') != 'true')
 			allinone_carousel_playOver.css('display', 'none');
 
 		//activate current
-		jQuery(bottomNavButs[current_obj.current_img_no]).addClass('bottomNavButtonON');
+		jQuery(bottomNavButs[current_obj.current_img_no]).addClass('bottomNavButtonON_SM');
 
 		//animate current one
 		current_obj.currentZ_index = 100;
 		//current_obj.currentImg = jQuery('#contentHolderUnit_'+current_obj.current_img_no);
-		current_obj.currentImg = jQuery('#contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container);
+		current_obj.currentImg = jQuery('#SM_contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container);
 		new_width = contentHolderUnitOrigWidth;
 		new_height = contentHolderUnitOrigHeight;
 		new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2);
 		new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment;
 
-		animateDiv(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+		animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 
 		//animate left wing
 		aux_img_no = current_obj.current_img_no;
 		for ( m = 1; m <= Math.floor(options.numberOfVisibleItems / 2); m++) {
 			current_obj.currentZ_index--;
-			aux_img_no = set_img_no(aux_img_no, -1, total_images);
-			current_obj.currentImg = jQuery('#contentHolderUnit_' + aux_img_no);
-			current_obj.currentImg = jQuery('#contentHolderUnit_' + aux_img_no, allinone_carousel_container);
+			aux_img_no = set_img_no_SMALL(aux_img_no, -1, total_images);
+			current_obj.currentImg = jQuery('#SM_contentHolderUnit_' + aux_img_no);
+			current_obj.currentImg = jQuery('#SM_contentHolderUnit_' + aux_img_no, allinone_carousel_container);
 			current_obj.currentImg.css('z-index', current_obj.currentZ_index);
-			console.log(" init " + m);
+			
 			//pozition last to enter the scene
 			if (m == Math.floor(options.numberOfVisibleItems / 2)) {
 				if (direction === 1) {
-					last_aux_img_no = set_img_no(aux_img_no, -1, total_images);
+					last_aux_img_no = set_img_no_SMALL(aux_img_no, -1, total_images);
 					//last_currentImg = jQuery('#contentHolderUnit_'+last_aux_img_no);
-					last_currentImg = jQuery('#contentHolderUnit_' + last_aux_img_no, allinone_carousel_container);
+					last_currentImg = jQuery('#SM_contentHolderUnit_' + last_aux_img_no, allinone_carousel_container);
 					//last_currentImg.css('z-index',current_obj.currentZ_index-1);
 					new_height = contentHolderUnitOrigHeight - 2 * (m + 1) * options.elementsVerticalSpacing;
 					new_width = parseInt(new_height * current_obj.aspectOrig);
 					new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - (m + 1) * options.elementsHorizontalSpacing;
 					new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing;
-
-					animateDiv(last_currentImg, new_left, new_top, new_width, new_height, 0, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+				
+					animateDiv_SMALL(last_currentImg, new_left, new_top, new_width, new_height, 0, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 				} else {//direction=-1
 					new_height = contentHolderUnitOrigHeight - 2 * (m + 1) * options.elementsVerticalSpacing;
 					new_width = parseInt(new_height * current_obj.aspectOrig);
-					resizeDiv(current_obj.currentImg, (m + 1), options, contentHolderUnitOrigHeight, current_obj);
+					resizeDiv_SMALL(current_obj.currentImg, (m + 1), options, contentHolderUnitOrigHeight, current_obj);
 
 					new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - (m + 1) * options.elementsHorizontalSpacing;
 					new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing;
-
+				
 					current_obj.currentImg.css('left', new_left);
 					current_obj.currentImg.css('top', new_top);
 					current_obj.currentImg.css('opacity', 0);
@@ -82,7 +82,7 @@
 			new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - m * options.elementsHorizontalSpacing;
 			new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing;
 
-			animateDiv(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+			animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 
 		}
 
@@ -90,32 +90,32 @@
 		var aux_img_no = current_obj.current_img_no;
 		for ( m = 1; m <= Math.floor(options.numberOfVisibleItems / 2); m++) {
 			current_obj.currentZ_index--;
-			aux_img_no = set_img_no(aux_img_no, 1, total_images);
+			aux_img_no = set_img_no_SMALL(aux_img_no, 1, total_images);
 			//current_obj.currentImg = jQuery('#contentHolderUnit_'+aux_img_no);
-			current_obj.currentImg = jQuery('#contentHolderUnit_' + aux_img_no, allinone_carousel_container);
+			current_obj.currentImg = jQuery('#SM_contentHolderUnit_' + aux_img_no, allinone_carousel_container);
 			current_obj.currentImg.css('z-index', current_obj.currentZ_index);
-			console.log("init check 2:: " + m);
+			
 			//pozition last to enter the scene
 			if (m == Math.floor(options.numberOfVisibleItems / 2)) {
 				if (direction === 1) {
-					resizeDiv(current_obj.currentImg, (m + 1), options, contentHolderUnitOrigHeight, current_obj);
+					resizeDiv_SMALL(current_obj.currentImg, (m + 1), options, contentHolderUnitOrigHeight, current_obj);
 					//alert (m+'--'+aux_img_no)
-					console.log(' DIREC ' + m);
+					
 					current_obj.currentImg.css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + (m + 1) * options.elementsHorizontalSpacing - current_obj.currentImg.width()) + 'px');
 					current_obj.currentImg.css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing + 'px');
 					current_obj.currentImg.css('opacity', 0);
 				} else {
 
-					last_aux_img_no = set_img_no(aux_img_no, 1, total_images);
+					last_aux_img_no = set_img_no_SMALL(aux_img_no, 1, total_images);
 					//last_currentImg = jQuery('#contentHolderUnit_'+last_aux_img_no);
-					last_currentImg = jQuery('#contentHolderUnit_' + last_aux_img_no, allinone_carousel_container);
+					last_currentImg = jQuery('#SM_contentHolderUnit_' + last_aux_img_no, allinone_carousel_container);
 					//last_currentImg.css('z-index',current_obj.currentZ_index-1);
 					new_height = contentHolderUnitOrigHeight - 2 * (m + 1) * options.elementsVerticalSpacing;
 					new_width = parseInt(new_height * current_obj.aspectOrig);
 					new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + (m + 1) * options.elementsHorizontalSpacing - new_width);
 					new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing;
 
-					animateDiv(last_currentImg, new_left, new_top, new_width, new_height, 0, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+					animateDiv_SMALL(last_currentImg, new_left, new_top, new_width, new_height, 0, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 				}
 			}
 			current_obj.currentImg.css('display', 'block');
@@ -126,15 +126,15 @@
 			new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing;
 
 			if (m == Math.floor(options.numberOfVisibleItems / 2))
-				animateDiv(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, true, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+				animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, true, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 			else
-				animateDiv(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
+				animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 
 		}
 
 	};
 
-	function resizeDiv(the_div, curNumber, options, contentHolderUnitOrigHeight, current_obj) {
+	function resizeDiv_SMALL(the_div, curNumber, options, contentHolderUnitOrigHeight, current_obj) {
 		//aspect = the_div.width() / the_div.height();
 		var new_height = contentHolderUnitOrigHeight - 2 * curNumber * options.elementsVerticalSpacing;
 		var new_width = parseInt(new_height * current_obj.aspectOrig);
@@ -151,7 +151,7 @@
 		}
 	}
 
-	function animateDiv(the_div, new_left, new_top, new_width, new_height, new_opacity, autoplay_next, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight) {
+	function animateDiv_SMALL(the_div, new_left, new_top, new_width, new_height, new_opacity, autoplay_next, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight) {
 		current_obj.slideIsRunning = true;
 		// the title
 		allinone_carousel_elementTitle.html(jQuery(imgs[current_obj.current_img_no]).attr('data-title'));
@@ -179,7 +179,7 @@
 
 				if ((options.autoPlay > 0 && total_images > 1 && !current_obj.mouseOverBanner && !current_obj.fastForwardRunning) || (current_obj.current_img_no != current_obj.img_no_where_to_stop && current_obj.fastForwardRunning)) {
 					clearTimeout(current_obj.timeoutID);
-					//current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(direction,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
+					//current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation_SMALL(direction,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
 				}
 				// jQuery('#log').html(current_obj.current_img_no+' == '+current_obj.img_no_where_to_stop);
 				if (current_obj.current_img_no == current_obj.img_no_where_to_stop && current_obj.fastForwardRunning) {
@@ -188,7 +188,7 @@
 					options.animationTime = current_obj.animationTimeOrig;
 					options.autoPlay = current_obj.autoPlayOrig;
 					clearTimeout(current_obj.timeoutID);
-					//current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
+					//current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation_SMALL(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
 				}
 			}
 		});
@@ -206,7 +206,7 @@
 		}
 	}
 
-	function set_img_no(the_number, direction, total_images) {
+	function set_img_no_SMALL(the_number, direction, total_images) {
 		if (the_number + direction >= total_images) {
 			the_number = 0;
 		} else if (the_number + direction < 0) {
@@ -218,11 +218,11 @@
 		return the_number;
 	}
 
-	function fastForwardMove(i, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle) {
+	function fastForwardMove_SMALL(i, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle) {
 		if (current_obj.current_img_no - i === -1) {
-			allinone_carousel_navigation(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+			allinone_carousel_navigation_SMALL(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 		} else if (current_obj.current_img_no - i === 1) {
-			allinone_carousel_navigation(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+			allinone_carousel_navigation_SMALL(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 		} else {
 			current_obj.fastForwardRunning = true;
 			options.animationTime = 0.4;
@@ -230,49 +230,63 @@
 			current_obj.img_no_where_to_stop = i;
 			if (current_obj.current_img_no < i) {//possible fast forward
 				if (i - current_obj.current_img_no < (total_images - i + current_obj.current_img_no))
-					allinone_carousel_navigation(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 				else
-					allinone_carousel_navigation(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 			} else if (current_obj.current_img_no > i) {//possible fast backward
 				if ((current_obj.current_img_no - i) < (total_images - current_obj.current_img_no + i))
-					allinone_carousel_navigation(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 				else
-					allinone_carousel_navigation(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 			}
 		}
 	}
 
 
-	$.fn.allinone_carousel = function(options) {
+	$.fn.allinone_carousel_SMALL = function(options) {
 		callback_function_carousel = options.callback;
 
 		var options
-		options = $.extend({}, $.fn.allinone_carousel.defaults, options);
+		options = $.extend({}, $.fn.allinone_carousel_SMALL.defaults_SMALL, options);
 
 		return this.each(function() {
+			
 			var allinone_carousel_the = jQuery(this);
 
+var allinone_carousel_wrap 
+var bannerControls 
 			//the controllers
-			var allinone_carousel_wrap = jQuery('<div></div>').addClass('allinone_carousel').addClass(options.skin);
-			var bannerControls = jQuery('<div class="bannerControls">   <div class="leftNav"></div>   <div class="rightNav"></div>    </div>  <div class="contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
-			allinone_carousel_the.wrap(allinone_carousel_wrap);
-			allinone_carousel_the.after(bannerControls);
+			
+			//if(document.getElementById('SM_mini_wrapper') == null)
+			//{
+				console.log(""+options.skin);	
+				allinone_carousel_wrap = jQuery('<div id="SM_mini_wrapper"></div>').addClass('allinone_carousel_SM').addClass(options.skin);
+				bannerControls = jQuery('<div class="bannerControls">   <div class="leftNav"></div>   <div class="rightNav"></div>    </div>  <div  id= "SM_contentHolder_actualcontainer"class="SM_contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
+				allinone_carousel_the.wrap(allinone_carousel_wrap);
+				allinone_carousel_the.after(bannerControls);
+			//}
+			
+			
 
 			//the elements
-			var allinone_carousel_container = allinone_carousel_the.parent('.allinone_carousel');
+			var allinone_carousel_container = allinone_carousel_the.parent('.allinone_carousel_SM');
 			var bannerControls = jQuery('.bannerControls', allinone_carousel_container);
 
 			var isCarouselScrolling = false;
 			var carouselStep = 0;
-			var allinone_carousel_contentHolder = jQuery('.contentHolder', allinone_carousel_container);
+			var allinone_carousel_contentHolder = jQuery('.SM_contentHolder', allinone_carousel_container);
 
-			var bottomNavLeft_aux = jQuery('<div class="bottomNavLeft"></div>');
-			var bottomNav_aux = jQuery('<div class="bottomNav"></div>');
-			var bottomNavRight_aux = jQuery('<div class="bottomNavRight"></div>');
+			//if(document.getElementById('bottomNav_m1') == null)
+			//{
+				var bottomNavLeft_aux = jQuery('<div id="bottomNav_m1" class="bottomNavLeft"></div>');
+			var bottomNav_aux = jQuery('<div id="bottomNav_m2" class="bottomNav"></div>');
+			var bottomNavRight_aux = jQuery('<div id="bottomNav_m3" class="bottomNavRight"></div>');
 
 			allinone_carousel_the.after(bottomNavLeft_aux);
 			allinone_carousel_the.after(bottomNav_aux);
-			allinone_carousel_the.after(bottomNavRight_aux);
+			allinone_carousel_the.after(bottomNavRight_aux);	
+			//}
+			
 
 			if (!options.showAllControllers)
 				bannerControls.css("display", "none");
@@ -289,6 +303,7 @@
 			}
 
 			var allinone_carousel_bottomNav = jQuery('.bottomNav', allinone_carousel_container);
+			
 			var allinone_carousel_bottomNavLeft = jQuery('.bottomNavLeft', allinone_carousel_container);
 			var allinone_carousel_bottomNavRight = jQuery('.bottomNavRight', allinone_carousel_container);
 			var allinone_carousel_bottomOverThumb;
@@ -363,8 +378,9 @@
 			var bottomNavBut;
 			var bottomNavWidth = 0;
 			var bottomNavMarginTop = 0;
+			//document.getElementById('SM_contentHolder_actualcontainer').innerHTML ="";
 			imgs.each(function() {
-				console.log("first INIT:");
+				
 				current_obj.currentImg = jQuery(this);
 				if (!current_obj.currentImg.is('li')) {
 					current_obj.currentImg = current_obj.currentImg.find('li:first');
@@ -375,7 +391,7 @@
 				if (current_obj.currentImg.is('li')) {
 					total_images++;
 					//'+current_obj.currentImg.html()+'
-					contentHolderUnit = jQuery('<div class="contentHolderUnit" rel="' + (total_images - 1) + '" id="contentHolderUnit_' + (total_images - 1) + '">' + current_obj.currentImg.html() + '</div>');
+					contentHolderUnit = jQuery('<div class="SM_contentHolderUnit" rel="' + (total_images - 1) + '" id="SM_contentHolderUnit_' + (total_images - 1) + '">' + current_obj.currentImg.html() + '</div>');
 					allinone_carousel_contentHolder.append(contentHolderUnit);
 					contentHolderUnit.css('display', 'none');
 
@@ -385,7 +401,7 @@
 						current_obj.aspectOrig = contentHolderUnitOrigWidth / contentHolderUnitOrigHeight;
 					}
 
-					resizeDiv(contentHolderUnit, 0, options, contentHolderUnitOrigHeight, current_obj);
+					resizeDiv_SMALL(contentHolderUnit, 0, options, contentHolderUnitOrigHeight, current_obj);
 					//contentHolderUnit.css('left',parseInt((options.width-contentHolderUnit.width())/2)+'px');
 					contentHolderUnit.css('top', parseInt(options.height - contentHolderUnit.height()) - options.verticalAdjustment + 'px');
 
@@ -399,8 +415,8 @@
 					} else {
 						if (total_images <= Math.ceil(options.numberOfVisibleItems / 2)) {
 							current_obj.currentZ_index--;
-							resizeDiv(contentHolderUnit, (total_images - 1), options, contentHolderUnitOrigHeight, current_obj);
-							//console.log(" 1:"+(options.width-contentHolderUnitOrigWidth)/2+" :2:"+contentHolderUnitOrigWidth+":3:"+total_images+" :4: "+options.elementsHorizontalSpacing +"  :5:"+contentHolderUnit.width())
+							resizeDiv_SMALL(contentHolderUnit, (total_images - 1), options, contentHolderUnitOrigHeight, current_obj);
+							
 
 							contentHolderUnit.css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + (total_images - 1) * options.elementsHorizontalSpacing - contentHolderUnit.width()) + 'px');
 							contentHolderUnit.css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (total_images - 1) * options.elementsVerticalSpacing + 'px');
@@ -411,38 +427,49 @@
 					}
 
 					//generate bottomNav
-					bottomNavBut = jQuery('<div class="bottomNavButtonOFF" rel="' + (total_images - 1) + '"></div>');
-					allinone_carousel_bottomNav.append(bottomNavBut);
+					//if(document.getElementById('mini_bottonNav_on_off') == null)
+					//{
+						bottomNavBut = jQuery('<div id="mini_bottonNav_on_off" class="bottomNavButtonOFF" rel="' + (total_images - 1) + '"></div>');
+					allinone_carousel_bottomNav.append(bottomNavBut);	
+					 
+					
 
 					bottomNavWidth += parseInt(bottomNavBut.css('padding-left').substring(0, bottomNavBut.css('padding-left').length - 2)) + bottomNavBut.width();
 					bottomNavMarginTop = parseInt((allinone_carousel_bottomNav.height() - parseInt(bottomNavBut.css('height').substring(0, bottomNavBut.css('height').length - 2))) / 2);
 					//alert (bottomNavMarginTop);
 					bottomNavBut.css('margin-top', bottomNavMarginTop + 'px');
+				/*	}
+					else
+					{
+						bottomNavBut = jQuery('#mini_bottonNav_on_off');
+					}*/
 				}
 
 			});
 			//bottomNavWidth+=parseInt(bottomNavBut.css('padding-left').substring(0, bottomNavBut.css('padding-left').length-2));
-			console.log("parseInt:: " + parseInt((options.width - allinone_carousel_playOver.width()) / 2));
+			
 			allinone_carousel_playOver.css('left', parseInt((options.width - allinone_carousel_playOver.width()) / 2) + 'px');
-			allinone_carousel_playOver.css('top', parseInt(options.height - contentHolderUnit.height() - options.verticalAdjustment + (jQuery('#contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container).height() - allinone_carousel_playOver.height()) / 2) + 'px');
+			allinone_carousel_playOver.css('top', parseInt(options.height - contentHolderUnit.height() - options.verticalAdjustment + (jQuery('#SM_contentHolderUnit_' + current_obj.current_img_no, allinone_carousel_container).height() - allinone_carousel_playOver.height()) / 2) + 'px');
 
 			//rearange left wing
 			current_obj.currentZ_index = 100;
 			for ( m = 1; m <= Math.floor(options.numberOfVisibleItems / 2); m++) {
 				current_obj.currentZ_index--;
-				//console.log(m+"| contentHolderUnitOrigWidth:"+options.elementsHorizontalSpacing +"::"+parseInt((options.width-contentHolderUnitOrigWidth)/2) +" :: "+m*options.elementsHorizontalSpacing);
+				
 
-				//resizeDiv(jQuery('#contentHolderUnit_'+(total_images-m), allinone_carousel_container),m,options,contentHolderUnitOrigHeight,current_obj);
-				jQuery('#contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) - m * options.elementsHorizontalSpacing + 'px');
-				jQuery('#contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing + 'px');
-				jQuery('#contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('z-index', current_obj.currentZ_index);
-				jQuery('#contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('display', 'block');
+				//resizeDiv_SMALL(jQuery('#contentHolderUnit_'+(total_images-m), allinone_carousel_container),m,options,contentHolderUnitOrigHeight,current_obj);
+				jQuery('#SM_contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) - m * options.elementsHorizontalSpacing + 'px');
+				jQuery('#SM_contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing + 'px');
+				jQuery('#SM_contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('z-index', current_obj.currentZ_index);
+				jQuery('#SM_contentHolderUnit_' + (total_images - m), allinone_carousel_container).css('display', 'block');
 			}
 
 			allinone_carousel_elementTitle.html(jQuery(imgs[0]).attr('data-title'));
 
 			allinone_carousel_bottomNav.width(bottomNavWidth);
 			if (options.showOnInitBottomNav) {
+				
+				console.log(' LINE :: '+allinone_carousel_bottomNavLeft+" : "+allinone_carousel_bottomNav.css('left')+' :: '+bottomNavBut)
 				allinone_carousel_bottomNav.css("left", parseInt((allinone_carousel_container.width() - bottomNavWidth) / 2) + 'px');
 				allinone_carousel_bottomNavLeft.css("left", parseInt(allinone_carousel_bottomNav.css('left').substring(0, allinone_carousel_bottomNav.css('left').length - 2)) - allinone_carousel_bottomNavLeft.width() + 'px');
 				allinone_carousel_bottomNavRight.css("left", parseInt(allinone_carousel_bottomNav.css('left').substring(0, allinone_carousel_bottomNav.css('left').length - 2)) + allinone_carousel_bottomNav.width() + parseInt(bottomNavBut.css('padding-left').substring(0, bottomNavBut.css('padding-left').length - 2)) + 'px');
@@ -492,14 +519,14 @@
 			}
 			if (options.autoPlay>0 && total_images>1 && !current_obj.fastForwardRunning && !current_obj.isVideoPlaying) {
 			clearTimeout(current_obj.timeoutID);
-			current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
+			current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation_SMALL(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
 			}
 			});*/
 
 			//contentHolderUnit click
 			//var contentHolderUnit=jQuery(".contentHolderUnit");
 
-			var contentHolderUnit = jQuery('.contentHolderUnit', allinone_carousel_container);
+			var contentHolderUnit = jQuery('.SM_contentHolderUnit', allinone_carousel_container);
 			contentHolderUnit.click(function() {
 				var i = jQuery(this).attr('rel');
 				callback_function_carousel(i);
@@ -522,7 +549,7 @@
 					//current_obj.mouseOverBanner=false;
 					current_obj.isVideoPlaying = false;
 					clearTimeout(current_obj.timeoutID);
-					allinone_carousel_navigation(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(-1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 				}
 			});
 			allinone_carousel_leftNav.mouseup(function() {
@@ -534,7 +561,7 @@
 					//current_obj.mouseOverBanner=false;
 					current_obj.isVideoPlaying = false;
 					clearTimeout(current_obj.timeoutID);
-					allinone_carousel_navigation(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					allinone_carousel_navigation_SMALL(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 				}
 			});
 			allinone_carousel_rightNav.mouseup(function() {
@@ -555,9 +582,9 @@
 						//alert (i+'  --  '+current_obj.current_img_no+'  --  '+total_images);
 						//deactivate previous
 						current_obj.isVideoPlaying = false;
-						jQuery(bottomNavButs[current_obj.current_img_no]).removeClass('bottomNavButtonON');
+						jQuery(bottomNavButs[current_obj.current_img_no]).removeClass('bottomNavButtonON_SM');
 
-						fastForwardMove(parseInt(i), options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+						fastForwardMove_SMALL(parseInt(i), options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 					}
 				}
 			});
@@ -595,13 +622,13 @@
 
 			if (options.enableTouchScreen) {
 				var randomNo = Math.floor(Math.random() * 100000);
-
-				allinone_carousel_container.wrap('<div id="carouselParent_' + randomNo + '" style="position:relative;" />');
-				jQuery('#carouselParent_' + randomNo).width(options.width + 1);
-				jQuery('#carouselParent_' + randomNo).height(options.height);
-				//jQuery('#carouselParent_'+randomNo).css('overflow','hidden');
-				//jQuery('#carouselParent_'+randomNo).css('border','1px solid #ff0000');
-
+			
+				//if(document.getElementById('SM_carouselParent_MINI') == null)
+				//{
+					allinone_carousel_container.wrap('<div id="SM_carouselParent_MINI" style="position:absolute;" />');
+					jQuery('#SM_carouselParent_MINI').width(options.width + 1);
+					jQuery('#SM_carouselParent_MINI').height(options.height);
+				//}	
 				//allinone_carousel_container.css('cursor','url(skins/hand.cur),url(skins/hand.cur),move');
 				allinone_carousel_container.css('left', '0px');
 				allinone_carousel_container.css('position', 'absolute');
@@ -615,8 +642,8 @@
 				allinone_carousel_container.mousedown(function() {
 					rightVal = parseInt(allinone_carousel_rightNav.css('right').substring(0, allinone_carousel_rightNav.css('right').length - 2));
 					if (rightVal < 0 && !arrowClicked) {
-						allinone_carousel_rightNav.css('visibility', 'hidden');
-						allinone_carousel_leftNav.css('visibility', 'hidden');
+						//allinone_carousel_rightNav.css('visibility', 'hidden');
+						//allinone_carousel_leftNav.css('visibility', 'hidden');
 						allinone_carousel_rightNav.css('right', '0');
 					}
 				});
@@ -624,8 +651,8 @@
 					arrowClicked = false;
 					if (rightVal < 0) {
 						allinone_carousel_rightNav.css('right', rightVal + 'px');
-						allinone_carousel_rightNav.css('visibility', 'visible');
-						allinone_carousel_leftNav.css('visibility', 'visible');
+						//allinone_carousel_rightNav.css('visibility', 'visible');
+						//allinone_carousel_leftNav.css('visibility', 'visible');
 					}
 				});
 
@@ -644,7 +671,7 @@
 								direction = -1;
 							}
 							//alert (origLeft+'<'+finalLeft+'-'+direction);
-							allinone_carousel_navigation(direction, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+							allinone_carousel_navigation_SMALL(direction, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 						}
 						if (rightVal < 0) {
 							allinone_carousel_rightNav.css('right', rightVal + 'px');
@@ -656,13 +683,14 @@
 				});
 			}
 
+			allinone_carousel_navigation_SMALL(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
 			//first start autoplay
-			jQuery(bottomNavButs[current_obj.current_img_no]).addClass('bottomNavButtonON');
+			/*jQuery(bottomNavButs[current_obj.current_img_no]).addClass('bottomNavButtonON_SM');
 			if (options.autoPlay > 0 && total_images > 1) {
 				current_obj.timeoutID = setTimeout(function() {
-					allinone_carousel_navigation(1, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle);
+					
 				}, 500);
-			}
+			}*/
 
 		});
 	};
@@ -670,13 +698,13 @@
 	//
 	// plugin skins
 	//
-	$.fn.allinone_carousel.defaults = {
+	$.fn.allinone_carousel_SMALL.defaults_SMALL = {
 		skin : 'attractive',
 		width : 960,
 		height : 384,
 		autoPlay : 4,
 		numberOfVisibleItems : 7, // odd number: 3,5,7,9
-		elementsHorizontalSpacing : 32,
+		elementsHorizontalSpacing : 34,
 		elementsVerticalSpacing : 5,
 		verticalAdjustment : 0,
 		animationTime : 0.8,
@@ -694,28 +722,6 @@
 		enableTouchScreen : true
 	};
 
-	$.fn.allinone_carousel.defaults_MAIN = {
-		skin : 'attractive',
-		width : 960,
-		height : 384,
-		autoPlay : 4,
-		numberOfVisibleItems : 7, // odd number: 3,5,7,9
-		elementsHorizontalSpacing : 120,
-		elementsVerticalSpacing : 20,
-		verticalAdjustment : 0,
-		animationTime : 0.8,
-		easing : 'easeOutQuad',
-		resizeImages : true,
-		showElementTitle : true,
-		showAllControllers : true,
-		showNavArrows : true,
-		showOnInitNavArrows : true, // o1
-		autoHideNavArrows : true, // o1
-		showBottomNav : true,
-		showOnInitBottomNav : true, // o2
-		autoHideBottomNav : true, // o2
-		showPreviewThumbs : true,
-		enableTouchScreen : true
-	};
+	
 
 })(jQuery); 
