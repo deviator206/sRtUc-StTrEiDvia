@@ -12,6 +12,7 @@ function CorrectAnswerScreen(app) {
 CorrectAnswerScreen.prototype.setUp = function() {
 	var that = this;
 	this.mApplication.showScreen(this.mDivName)
+	_gMainApplication.pauseTimer();
 	this.mApplication.showSelectedScreen('grey_bottom');
 	var sA = getAssetPath("img", "img/iPhone/next-question.png");
 	//var sB = getAssetPath("img",config.questionSet[this.mApplication.nQuestionIndex].img_url);
@@ -48,12 +49,12 @@ CorrectAnswerScreen.prototype.setUp = function() {
 		document.getElementById('correct_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
 	}
 	
-	
+	this.mApplication.mQuestionAnswered.push(this.mApplication.nQuestionIndex);
 	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
 	document.getElementById('imgHolder_In_CorrectAnswerScreen').appendChild(mObj);
 
 	document.getElementById('correct_next_question').onclick = function() {
-
+		that.mApplication.hideCarousel();
 		that.mApplication.setGameState(120);
 		that.mApplication.nextTransition();
 	};

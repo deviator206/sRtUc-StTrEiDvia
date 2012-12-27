@@ -15,7 +15,8 @@ function GamePlayScreen (app)
 GamePlayScreen.prototype.setUp = function()
 {
 	var that = this;
-	this.mApplication.showScreen(this.mDivName)
+	this.mApplication.showScreen(this.mDivName);
+	_gMainApplication.resumeTimer();
 	this.mApplication.showSelectedScreen('grey_bottom');	
 	//var sB = getAssetPath("img",config.questionSet[this.mApplication.nQuestionIndex].img_url)
 	//var sContent ='<div id="game_screen_logo_2" class="gameScreenLogo"></div><div id= "imgHolder_In_Question" class="gameImg"></div><div class="questionTxt"><p>'+config.questionSet[this.mApplication.nQuestionIndex].question+'</p></div><div class="answerDiv"><div id="option_1" class="ans">A. '+config.questionSet[this.mApplication.nQuestionIndex].option_1+' </div><div class="ansSpace"></div><div id="option_2" class="ans">B. '+config.questionSet[this.mApplication.nQuestionIndex].option_2+'</div><div class="ansSpace"></div><div id="option_3" class="ans">C. '+config.questionSet[this.mApplication.nQuestionIndex].option_3+'</div><div class="ansSpace"></div><div id="option_4" class="ans">D. '+config.questionSet[this.mApplication.nQuestionIndex].option_4+' </div></div>'

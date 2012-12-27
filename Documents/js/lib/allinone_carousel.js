@@ -261,10 +261,13 @@ var bannerControls
 			//{
 				console.log(""+options.skin);	
 				allinone_carousel_wrap = jQuery('<div id="SM_mini_wrapper"></div>').addClass('allinone_carousel_SM').addClass(options.skin);
-				bannerControls = jQuery('<div class="bannerControls">   <div class="leftNav"></div>   <div class="rightNav"></div>    </div>  <div  id= "SM_contentHolder_actualcontainer"class="SM_contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
+				bannerControls = jQuery('<div class="bannerControls">   <div  id="carousel_leftNav_sm" class="leftNav"></div>   <div id="carousel_rightNav_sm" class="rightNav"></div>    </div>  <div  id= "SM_contentHolder_actualcontainer"class="SM_contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
 				allinone_carousel_the.wrap(allinone_carousel_wrap);
 				allinone_carousel_the.after(bannerControls);
 			//}
+			
+			document.getElementById('carousel_leftNav_sm').appendChild(_gMainApplication.arrImagesTrack['leftNav_Carousel_sm']);
+			document.getElementById('carousel_rightNav_sm').appendChild(_gMainApplication.arrImagesTrack['rightNav_Carousel_sm']);
 			
 			
 

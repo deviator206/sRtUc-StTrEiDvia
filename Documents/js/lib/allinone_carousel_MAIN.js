@@ -1,5 +1,6 @@
 
 
+
 (function($) {
 	
 	var arrowClicked=false;
@@ -254,6 +255,7 @@
 	
 	$.fn.allinone_carousel = function(options) {
 	callback_function_carousel = options.callback;
+	
 		var options = $.extend({},$.fn.allinone_carousel.defaults, options);
 
 		return this.each(function() {
@@ -261,10 +263,13 @@
 			
 			//the controllers
 			var allinone_carousel_wrap = jQuery('<div></div>').addClass('allinone_carousel').addClass(options.skin);
-			var bannerControls = jQuery('<div class="bannerControls">   <div class="leftNav"></div>   <div class="rightNav"></div>    </div>  <div class="contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
+			var bannerControls = jQuery('<div class="bannerControls">   <div  id="carousel_leftNav" class="leftNav"></div>   <div id="carousel_rightNav" class="rightNav"></div>    </div>  <div class="contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
 			allinone_carousel_the.wrap(allinone_carousel_wrap);
 			allinone_carousel_the.after(bannerControls);
 			
+			document.getElementById('carousel_leftNav').appendChild(_gMainApplication.arrImagesTrack['leftNav_Carousel']);
+			document.getElementById('carousel_rightNav').appendChild(_gMainApplication.arrImagesTrack['rightNav_Carousel']);
+					
 
 			
 			//the elements
@@ -477,7 +482,7 @@
 			
 	
 			//pause on hover
-			allinone_carousel_container.mouseenter(function() {
+			/*allinone_carousel_container.mouseenter(function() {
 				current_obj.mouseOverBanner=true;
 				clearTimeout(current_obj.timeoutID);
 				if (options.autoHideNavArrows && options.showNavArrows) {
@@ -514,7 +519,7 @@
 				}
 			});
 
-			
+			*/
 			//contentHolderUnit click
 			//var contentHolderUnit=jQuery(".contentHolderUnit");
 			var contentHolderUnit=jQuery('.contentHolderUnit', allinone_carousel_container);
@@ -523,7 +528,7 @@
 				if (!current_obj.slideIsRunning && !current_obj.fastForwardRunning) {
 					var i=jQuery(this).attr('rel');
 					
-					if (i!=current_obj.current_img_no) {
+					/*if (i!=current_obj.current_img_no) {
 						current_obj.isVideoPlaying=false;
 						//alert (i+'  --  '+current_obj.current_img_no+'  --  '+total_images);					
 						//deactivate previous 
@@ -539,11 +544,11 @@
 							current_obj.isVideoPlaying=true;
 						}
 						else
-						{
+						{*/
 							
 							callback_function_carousel(i);
-						}
-					}
+						//}
+					//}
 				}
 			});		
 			
@@ -642,9 +647,9 @@
 			if (options.enableTouchScreen) {
 				var randomNo=Math.floor(Math.random()*100000);
 				
-				allinone_carousel_container.wrap('<div id="carouselParent_'+randomNo+'" style="position:relative;" />');
-				jQuery('#carouselParent_'+randomNo).width(options.width+1);
-				jQuery('#carouselParent_'+randomNo).height(options.height);
+				allinone_carousel_container.wrap('<div id="carouselParent_MAIN_IMG" style="position:relative;" />');
+				jQuery('#carouselParent_MAIN_IMG').width(options.width+1);
+				jQuery('#carouselParent_MAIN_IMG').height(options.height);
 				//jQuery('#carouselParent_'+randomNo).css('overflow','hidden');
 				//jQuery('#carouselParent_'+randomNo).css('border','1px solid #ff0000');
 				

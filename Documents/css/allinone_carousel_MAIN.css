@@ -86,12 +86,7 @@ skins available:
 	/*cursor: pointer;*/
 }
 
-.allinone_carousel.charming .playOver:hover {
-	/*background:url(skins/charming/play_overON.png) 0 0 no-repeat;*/
-	display:none;
-	z-index:200;
-	/*cursor: pointer;*/
-}
+
 
 .allinone_carousel.charming .bannerControls {
 	position:absolute;
@@ -109,9 +104,7 @@ skins available:
 	/*background:url(skins/charming/leftNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.charming .leftNav:hover {
-	/*background:url(skins/charming/leftNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.charming .rightNav {
 	position:absolute;
 	right:5px;
@@ -120,9 +113,7 @@ skins available:
 	/*background:url(skins/charming/rightNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.charming .rightNav:hover {
-	/*background:url(skins/charming/rightNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.charming .bottomNav {
 	position:absolute;
 	height:35px;
@@ -212,12 +203,6 @@ skins available:
 	/*cursor: pointer;*/
 }
 
-.allinone_carousel.sweet .playOver:hover {
-	/*background:url(skins/sweet/play_overOFF.png) 0 0 no-repeat;*/
-	display:none;
-	z-index:200;
-	/*cursor: pointer;*/
-}
 
 .allinone_carousel.sweet .bannerControls {
 	position:absolute;
@@ -235,9 +220,7 @@ skins available:
 	/*background:url(skins/sweet/leftNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.sweet .leftNav:hover {
-	/*background:url(skins/sweet/leftNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.sweet .rightNav {
 	position:absolute;
 	right:-5px;
@@ -246,9 +229,7 @@ skins available:
 	/*background:url(skins/sweet/rightNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.sweet .rightNav:hover {
-	/*background:url(skins/sweet/rightNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.sweet .bottomNav {
 	position:absolute;
 	height:35px;
@@ -353,13 +334,7 @@ skins available:
 	/*cursor: pointer;*/
 }
 
-.allinone_carousel.powerful .playOver:hover {
-	/*background:url(skins/powerful/play_over2.png) 0 0 no-repeat;*/
 
-	display:none;
-	z-index:200;
-	/*cursor: pointer;*/
-}
 
 .text {
 	position:absolute;
@@ -382,26 +357,25 @@ skins available:
 
 .allinone_carousel.powerful .leftNav {
 	position:absolute;
-	left:-23px;
+	
 	width:110px;
 	height:157px;
+	left: 30px;
+top: 75px;
 	/*background:url(skins/powerful/leftNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.powerful .leftNav:hover {
-	/*background:url(skins/powerful/leftNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.powerful .rightNav {
 	position:absolute;
-	right:-23px;
 	width:110px;
 	height:157px;
+	top: 75px;
+	left: 830px;
 	/*background:url(skins/powerful/rightNavOFF.png) 0 0 no-repeat;*/
 	/*cursor: pointer;*/
 }
-.allinone_carousel.powerful .rightNav:hover {
-	/*background:url(skins/powerful/rightNavON.png) 0 0 no-repeat;*/
-}
+
 .allinone_carousel.powerful .bottomNav {
 	position:absolute;
 	height:35px;
@@ -463,3 +437,7 @@ skins available:
 	display:none;
 }
 
+#carouselParent_MAIN_IMG
+{
+	
+}

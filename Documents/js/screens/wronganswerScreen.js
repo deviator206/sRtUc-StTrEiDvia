@@ -11,7 +11,8 @@ function WrongAnswerScreen(app) {
 
 WrongAnswerScreen.prototype.setUp = function() {
 	var that = this;
-	this.mApplication.showScreen(this.mDivName)
+	this.mApplication.showScreen(this.mDivName);
+	_gMainApplication.pauseTimer();
 	this.mApplication.showSelectedScreen('grey_bottom');
 	//	var ss= getAssetPath("img",config.questionSet[this.mApplication.nQuestionIndex].img_url)
 	var sb = getAssetPath("img", "img/iPhone/next-question.png")
@@ -19,11 +20,12 @@ WrongAnswerScreen.prototype.setUp = function() {
 	document.getElementById('wronganswerScreen').innerHTML = '' + sContent;
 	var sT = getAssetPath("img", "img/images/image4.png");
 	document.getElementById('game_screen_logo_4').style.backgroundImage = "url(" + sT + ")";
-
+	this.mApplication.mQuestionAnswered.push(this.mApplication.nQuestionIndex);
 	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
 	document.getElementById('imgHolder_In_Revealing').appendChild(mObj);
 
 	document.getElementById('wrong_next_question').onclick = function() {
+		that.mApplication.hideCarousel();
 		that.mApplication.setGameState(120);
 		that.mApplication.nextTransition();
 	};

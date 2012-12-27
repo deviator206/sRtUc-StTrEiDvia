@@ -393,19 +393,21 @@ skins available:
 	position:absolute;
 	width:20px;
 	height:10px;
-	border: 2px solid blue;
-	right: 160px;
-	bottom: 20px;
+	
+	right: 170px;
+	bottom: 42px;
 	cursor: pointer;
 }
 
 .allinone_carousel_SM.powerful .rightNav {
 	position:absolute;
-	right:-23px;
 	width:20px;
 	height:10px;
-	border: 2px solid blue;
+	
 	left: 155px;
+	right: 170px;
+	bottom: 42px;
+
 	cursor: pointer;
 }
 

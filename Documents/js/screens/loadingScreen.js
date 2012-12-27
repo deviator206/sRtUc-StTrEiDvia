@@ -99,7 +99,13 @@ LoadingScreen.prototype.setUp = function()
 	
 	this.mApplication.arrImagesTrack['next-question-overlay'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question_overlay.png"));
 	this.mApplication.arrImagesTrack['next-question-normal'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/next-question.png"));
-				
+	
+	
+	this.mApplication.arrImagesTrack['leftNav_Carousel'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/leftNav.png"));
+	this.mApplication.arrImagesTrack['rightNav_Carousel'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/rightNav.png"));
+	
+	this.mApplication.arrImagesTrack['leftNav_Carousel_sm'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/leftNav.png"));
+	this.mApplication.arrImagesTrack['rightNav_Carousel_sm'] = this.mGameAssetLoader.addImage(getAssetPath("img","img/iPhone/rightNav.png"));			
 	
 	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
 	this.mGameAssetLoader.addImage("img/iPhone/set10_0001_story-flash-screen-bg.png");

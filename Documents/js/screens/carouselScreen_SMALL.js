@@ -65,6 +65,7 @@ CarouselScreen.prototype.setUp = function() {
 			that.mApplication.setGameState(30);
 			that.mApplication.nextTransition();
 		} else if (that.mApplication.nGameState == 130) {
+			
 			that.mApplication.setGameState(70);
 			that.mApplication.nextTransition();
 		} else {
@@ -75,7 +76,7 @@ CarouselScreen.prototype.setUp = function() {
 
 }
 function CLICK_HERE(i) {
-	console.log('slected ' + i)
+	//console.log('slected ' + i)
 	_gMainApplication.startGameTimer(i)
 	_gMainApplication.setGameState(90);
 	_gMainApplication.nextTransition();

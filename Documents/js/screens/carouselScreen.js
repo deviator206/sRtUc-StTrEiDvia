@@ -111,7 +111,7 @@ CarouselScreen.prototype.setUp = function()
 
 function CLICK_HERE(i)
 {
-	//console.log('slected '+i)
+	console.log('slected '+i)
 	_gMainApplication.startGameTimer(i)
 	_gMainApplication.setGameState(90);
 	_gMainApplication.nextTransition();
