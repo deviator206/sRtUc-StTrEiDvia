@@ -24,15 +24,15 @@ WrongAnswerScreen.prototype.setUp = function() {
 	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
 	document.getElementById('imgHolder_In_Revealing').appendChild(mObj);
 
-	document.getElementById('wrong_next_question').onclick = function() {
+	/*document.getElementById('wrong_next_question').onclick = function() {
 		that.mApplication.hideCarousel();
 		that.mApplication.setGameState(120);
 		that.mApplication.nextTransition();
-	};
+	};*/
 
 	var that = this;
-	document.getElementById('wrong_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
-	document.getElementById('wrong_next_question').onmouseover = function() {
+	document.getElementById('wrong_next_question').appendChild(that.mApplication.arrImagesTrack['pick_ur_question']);
+	/*document.getElementById('wrong_next_question').onmouseover = function() {
 		var myDiv = document.getElementById('wrong_next_question');
 		var children = myDiv.childNodes;
 		var len = children.length;
@@ -55,6 +55,6 @@ WrongAnswerScreen.prototype.setUp = function() {
 		}
 
 		document.getElementById('wrong_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
-	}
+	}*/
 	this.mApplication.loadMiniCarousel();
 }

@@ -23,8 +23,8 @@ CorrectAnswerScreen.prototype.setUp = function() {
 	document.getElementById('game_screen_logo_3').style.backgroundImage = "url(" + sC + ")";
 
 	var that = this;
-	document.getElementById('correct_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
-	document.getElementById('correct_next_question').onmouseover = function() {
+	document.getElementById('correct_next_question').appendChild(that.mApplication.arrImagesTrack['pick_ur_question']);
+	/*document.getElementById('correct_next_question').onmouseover = function() {
 		var myDiv = document.getElementById('correct_next_question');
 		var children = myDiv.childNodes;
 		var len = children.length;
@@ -48,16 +48,17 @@ CorrectAnswerScreen.prototype.setUp = function() {
 
 		document.getElementById('correct_next_question').appendChild(that.mApplication.arrImagesTrack['next-question-normal']);
 	}
-	
-	this.mApplication.mQuestionAnswered.push(this.mApplication.nQuestionIndex);
-	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
-	document.getElementById('imgHolder_In_CorrectAnswerScreen').appendChild(mObj);
-
 	document.getElementById('correct_next_question').onclick = function() {
 		that.mApplication.hideCarousel();
 		that.mApplication.setGameState(120);
 		that.mApplication.nextTransition();
 	};
+	*/
+	this.mApplication.mQuestionAnswered.push(this.mApplication.nQuestionIndex);
+	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
+	document.getElementById('imgHolder_In_CorrectAnswerScreen').appendChild(mObj);
+
+	
 
 	this.mApplication.loadMiniCarousel();
 }
