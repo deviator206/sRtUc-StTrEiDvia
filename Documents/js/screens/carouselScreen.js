@@ -24,18 +24,20 @@ CarouselScreen.prototype.setUp = function()
 	{
 		this.mApplication.bcarouselCreated = true;
 		 
-		 
 		var sContent = '<div class="myloader"></div><ul  id ="carousel_ul_li_holder" class="allinone_carousel_list" style="background-color:#999966;">'
 		document.getElementById('allinone_carousel_charming').innerHTML= sContent;
-		for(var i =1;i<=25;i++)
+		
+		//console.log(' TOTAL Q '+config.questionSet.length)
+		for(var i =0;i<config.questionSet.length;i++)
 		{
+			var j = i+1;
 			//var km = getAssetPath("img","img/iPhone/"+i+".png");
 			var ele = document.createElement('li');
 			ele.setAttribute('id',"li_ele_"+i)
 			document.getElementById('carousel_ul_li_holder').appendChild(ele);
-			var mObj = this.mApplication.arrImagesTrack["C_"+i];
+			var mObj = this.mApplication.arrImagesTrack["C_"+j];
 			mObj.setAttribute('id',"li_"+i);
-			mObj.setAttribute('width',"200");
+			mObj.setAttribute('width',"185");
 			mObj.setAttribute('class',"reflectBelow");
 			ele.appendChild(mObj);
 			
@@ -64,22 +66,11 @@ CarouselScreen.prototype.setUp = function()
 		jQuery('#allinone_carousel_charming').allinone_carousel({
 								skin: 'powerful',
 								width: 850,
-								height: 510,
-								responsive:true,
-								autoPlay: 0,
-								resizeImages:true,
-								autoHideBottomNav:false,
-								showElementTitle:false,
-								verticalAdjustment:50,
-								showPreviewThumbs:false,
-						
-								numberOfVisibleItems:5,
-								nextPrevMarginTop:0,
-								playMovieMarginTop:0,
-								bottomNavMarginBottom:-10,
+								height: 470,
+								numberOfVisibleItems : 3,
 								callback:function(msg)
 								{
-									
+									//console.log("RCVD FROM PLUGIN :"+msg)
 									CLICK_HERE(msg)
 								}
 							});		
@@ -111,7 +102,9 @@ CarouselScreen.prototype.setUp = function()
 
 function CLICK_HERE(i)
 {
-	console.log('slected '+i)
+	
+	i = Number(i)
+	//console.log('slected '+i)
 	_gMainApplication.startGameTimer(i)
 	_gMainApplication.setGameState(90);
 	_gMainApplication.nextTransition();

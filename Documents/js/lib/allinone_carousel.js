@@ -259,7 +259,7 @@ var bannerControls
 			
 			//if(document.getElementById('SM_mini_wrapper') == null)
 			//{
-				console.log(""+options.skin);	
+				//console.log(""+options.skin);	
 				allinone_carousel_wrap = jQuery('<div id="SM_mini_wrapper"></div>').addClass('allinone_carousel_SM').addClass(options.skin);
 				bannerControls = jQuery('<div class="bannerControls">   <div  id="carousel_leftNav_sm" class="leftNav"></div>   <div id="carousel_rightNav_sm" class="rightNav"></div>    </div>  <div  id= "SM_contentHolder_actualcontainer"class="SM_contentHolder"></div>   <div class="elementTitle"></div>	<div class="playOver"></div>');
 				allinone_carousel_the.wrap(allinone_carousel_wrap);
@@ -472,7 +472,7 @@ var bannerControls
 			allinone_carousel_bottomNav.width(bottomNavWidth);
 			if (options.showOnInitBottomNav) {
 				
-				console.log(' LINE :: '+allinone_carousel_bottomNavLeft+" : "+allinone_carousel_bottomNav.css('left')+' :: '+bottomNavBut)
+				//console.log(' LINE :: '+allinone_carousel_bottomNavLeft+" : "+allinone_carousel_bottomNav.css('left')+' :: '+bottomNavBut)
 				allinone_carousel_bottomNav.css("left", parseInt((allinone_carousel_container.width() - bottomNavWidth) / 2) + 'px');
 				allinone_carousel_bottomNavLeft.css("left", parseInt(allinone_carousel_bottomNav.css('left').substring(0, allinone_carousel_bottomNav.css('left').length - 2)) - allinone_carousel_bottomNavLeft.width() + 'px');
 				allinone_carousel_bottomNavRight.css("left", parseInt(allinone_carousel_bottomNav.css('left').substring(0, allinone_carousel_bottomNav.css('left').length - 2)) + allinone_carousel_bottomNav.width() + parseInt(bottomNavBut.css('padding-left').substring(0, bottomNavBut.css('padding-left').length - 2)) + 'px');

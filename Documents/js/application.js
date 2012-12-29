@@ -44,21 +44,22 @@ ApplicationWrapper.prototype.nextTransition = function() {
 			break;
 		case 120:
 			// from solution screen
-			this.arrQuestion.push(this.nQuestionIndex);
-			//if(this.nQuestionIndex < config.questionSet.length-1 )
-			if (this.arrQuestion.length < config.questionSet.length - 1) {
-				if (this.nQuestionIndex < config.questionSet.length - 1)
-					this.nQuestionIndex++;
-				else
-					this.nQuestionIndex = 0;
-				this.nGameState = 90;
-				this.nextTransition()
-			} else {
 
-				this.nGameState = 130;
-				this.nextTransition()
-			}
+			/*this.arrQuestion.push(this.nQuestionIndex);
+			 //if(this.nQuestionIndex < config.questionSet.length-1 )
+			 if (this.arrQuestion.length < config.questionSet.length - 1) {
+			 if (this.nQuestionIndex < config.questionSet.length - 1)
+			 this.nQuestionIndex++;
+			 else
+			 this.nQuestionIndex = 0;
+			 this.nGameState = 90;
+			 this.nextTransition()
+			 } else {
 
+			 this.nGameState = 130;
+			 this.nextTransition()
+			 }
+			 */
 			break;
 		case 130:
 			clearInterval(this.nQuizTimer)
@@ -71,12 +72,11 @@ ApplicationWrapper.prototype.setGameState = function(nGameState) {
 	this.nGameState = nGameState;
 }
 
-ApplicationWrapper.prototype.hideCarousel = function()
-{
+ApplicationWrapper.prototype.hideCarousel = function() {
 	if (document.getElementById('SM_carouselParent_MINI') != null) {
-		//console.log(document.getElementById('SM_carouselParent_MINI').parentNode);
-		//console.log('::'+document.getElementById('main_game_screen'));
-		
+		////console.log(document.getElementById('SM_carouselParent_MINI').parentNode);
+		////console.log('::'+document.getElementById('main_game_screen'));
+
 		document.getElementById('main_game_screen').removeChild(document.getElementById('SM_carouselParent_MINI'));
 	}
 
@@ -89,94 +89,101 @@ ApplicationWrapper.prototype.hideCarousel = function()
 
 }
 
-
 ApplicationWrapper.prototype.loadMiniCarousel = function() {
-	console.log(this.mQuestionAnswered)
-	this.hideCarousel();
-	var sContent = '<div class="myloader_SM"></div><ul  id ="carousel_ul_li_holder_SM" class="allinone_carousel_list_SM" style="background-color:#999966;">'
-	document.getElementById('allinone_carousel_charming_SM').innerHTML = sContent;
-	
-	for (var i = 0; i <config.questionSet.length; i++) {
-		console.log('INDX :: '+this.mQuestionAnswered.indexOf(String(i)))
-		if(this.mQuestionAnswered.indexOf(String(i)) == -1)
-		{
-		var j = i+1;
-		var ele = document.createElement('li');
-		ele.setAttribute('id', "li__ele_SM" + j)
-		document.getElementById('carousel_ul_li_holder_SM').appendChild(ele);
-		var mObj = this.arrImagesTrack["C_" + j];
-		mObj.setAttribute('id', "li_" + j);
-		mObj.setAttribute('width', "50");
-		mObj.setAttribute('class', "reflectBelow");
-		ele.appendChild(mObj);
-		}
-	}
+	//console.log(this.mQuestionAnswered)
 
-	jQuery('#allinone_carousel_charming_SM').allinone_carousel_SMALL({
-		skin : 'powerful',
-		width : 130,
-		height : 75,
-		numberOfVisibleItems : 5,
-		callback : function(msg) {
-			//console.log(" CLICKED");
-			if(document.getElementById('SM_carouselParent_MINI') != null)
-			document.getElementById('SM_carouselParent_MINI').style.display = 'none';
-			CLICK_HERE_MINI_CAROUSEL(msg)
+	if (this.mQuestionAnswered.length < config.questionSet.length ) {
+		this.mCarouselQuestionTrack = new Array();
+		this.hideCarousel();
+		var sContent = '<div class="myloader_SM"></div><ul  id ="carousel_ul_li_holder_SM" class="allinone_carousel_list_SM" style="background-color:#999966;">'
+		document.getElementById('allinone_carousel_charming_SM').innerHTML = sContent;
+
+		for (var i = 0; i < config.questionSet.length; i++) {
+			if (this.mQuestionAnswered.indexOf(Number(i)) == -1) {
+				this.mCarouselQuestionTrack.push(i);
+				var j= i+1;
+				var ele = document.createElement('li');
+				ele.setAttribute('id', "li__ele_SM" + i)
+				document.getElementById('carousel_ul_li_holder_SM').appendChild(ele);
+				var mObj = this.arrImagesTrack["C_" + j];
+				mObj.setAttribute('id', "li_" + i);
+				mObj.setAttribute('width', "50");
+				mObj.setAttribute('class', "reflectBelow");
+				ele.appendChild(mObj);
+			}
+			else
+			{
+				//console.log(i+ 'INDX :FOUND: ' + this.mQuestionAnswered.indexOf(Number(i)))
+			}
 		}
-	});
-	document.getElementById('SM_carouselParent_MINI').style.display = 'block';
+
+		jQuery('#allinone_carousel_charming_SM').allinone_carousel_SMALL({
+			skin : 'powerful',
+			width : 130,
+			height : 75,
+			numberOfVisibleItems : 5,
+			callback : function(msg) {
+				////console.log(" CLICKED");
+				if (document.getElementById('SM_carouselParent_MINI') != null)
+					document.getElementById('SM_carouselParent_MINI').style.display = 'none';
+				CLICK_HERE_MINI_CAROUSEL(msg)
+			}
+		});
+		document.getElementById('SM_carouselParent_MINI').style.display = 'block';
+
+	} else {
+		
+		this.hideCarousel();
+		this.nGameState = 130;
+		this.nextTransition()
+	}
 
 }
 
-ApplicationWrapper.prototype.pauseTimer = function()
-{
+ApplicationWrapper.prototype.pauseTimer = function() {
 	clearInterval(_gMainApplication.nQuizTimer);
 };
 
-ApplicationWrapper.prototype.resumeTimer = function()
-{
+ApplicationWrapper.prototype.resumeTimer = function() {
 	clearInterval(_gMainApplication.nQuizTimer);
 	this.nQuizTimer = setInterval(this.TimerFunction.bind(this), 1000);
 }
-
-function CLICK_HERE_MINI_CAROUSEL (i)
-{
+function CLICK_HERE_MINI_CAROUSEL(i) {
+	i = _gMainApplication.mCarouselQuestionTrack[Number(i)];
+	//console.log('mini carousel selection '+i)
 	_gMainApplication.nQuestionIndex = i;
 	_gMainApplication.resumeTimer();
 	_gMainApplication.setGameState(90);
 	_gMainApplication.nextTransition();
 }
 
-
 ApplicationWrapper.prototype.startGameTimer = function(i) {
 	this.arrQuestion = new Array();
-	this.mQuestionAnswered= new Array();
+	this.mQuestionAnswered = new Array();
 	var that = this;
 	this.nQuizTimeCntr = 450;
 	this.nQuizScore = 0;
-	
+
 	//alert(config.questionSet.length);
 	this.nQuestionIndex = i//Math.floor(Math.random() * config.questionSet.length - 1);
-	
+
 	/*if (Number(this.nQuestionIndex) > 19)
-		this.nQuestionIndex = 0;
+	this.nQuestionIndex = 0;
 	if (Number(this.nQuestionIndex) < 0)
-		this.nQuestionIndex = 0*/
-	//console.log('|||| --- >'+config.questionSet.length+":FINAL: "+this.nQuestionIndex)
+	this.nQuestionIndex = 0*/
+	////console.log('|||| --- >'+config.questionSet.length+":FINAL: "+this.nQuestionIndex)
 	this.nQuizTimer = setInterval(this.TimerFunction.bind(this), 1000);
 }
 
-
-ApplicationWrapper.prototype.TimerFunction = function()
-{
+ApplicationWrapper.prototype.TimerFunction = function() {
 	this.nQuizTimeCntr--
-		if (this.nQuizTimeCntr <= 0) {
-			clearInterval(this.nQuizTimer)
-			this.nGameState = 130;
-			this.nextTransition()
-		}
-		document.getElementById('timer_txt').innerHTML = '' + this.nQuizTimeCntr;
-		document.getElementById('score_txt').innerHTML = '' + this.nQuizScore;
+	if (this.nQuizTimeCntr <= 0) {
+		clearInterval(this.nQuizTimer)
+		this.nGameState = 130;
+		this.nextTransition()
+	}
+	document.getElementById('timer_txt').innerHTML = '' + this.nQuizTimeCntr;
+	document.getElementById('score_txt').innerHTML = '' + this.nQuizScore;
 }
 
 ApplicationWrapper.prototype.answerSelected = function(nSelected) {
@@ -229,7 +236,8 @@ function ApplicationWrapper() {
 	this.bcarouselCreated = false;
 	this.arrQuestion = null;
 	this.arrImagesTrack = {}
-	this.mQuestionAnswered= new Array();
+	this.mQuestionAnswered = new Array();
+	this.mCarouselQuestionTrack = new Array();
 	return this;
 }
 

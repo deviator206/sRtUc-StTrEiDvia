@@ -6,7 +6,7 @@ function LoadingScreen(app) {
 	this.mApplication = app;
 	this.mDivName = "loadingScreen"
 	this.mGameSplashLoader = null;
-	this.mImageRow = 0;
+	this.mImageRow = 10;
 
 	this.mAssetLoaded = false;
 
@@ -17,7 +17,7 @@ function LoadingScreen(app) {
 LoadingScreen.prototype.setUp = function() {
 
 	this.mApplication.showScreen(this.mDivName)
-	document.getElementById('loadingScreen').innerHTML = '<img id="loadingScreen_front"/>'
+	document.getElementById('loadingScreen').innerHTML = '<div id="loadingScreen_front" style="width: 117px;height: 252px;"></div>'
 	//var sT = getAssetPath("img","img/splash/whiteProgBar.png")
 	/*for(var i=0;i<25;i++)
 	 {
@@ -35,8 +35,9 @@ LoadingScreen.prototype.setUp = function() {
 	 }
 
 	 */
-	this.mGameSplashLoader = null;
+	this.mGameSplashLoader = new PxLoader();
 	this.mGameAssetLoader = new PxLoader();
+
 	this.mApplication.arrImagesTrack = {}
 
 	this.mGameAssetLoader.addImage(getAssetPath("img", "img/images/image2.png"));
@@ -102,8 +103,8 @@ LoadingScreen.prototype.setUp = function() {
 
 	this.mApplication.arrImagesTrack['leftNav_Carousel_sm'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/leftNav.png"));
 	this.mApplication.arrImagesTrack['rightNav_Carousel_sm'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/rightNav.png"));
-	
-		this.mApplication.arrImagesTrack['pick_ur_question'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/pick.jpg"));
+
+	this.mApplication.arrImagesTrack['pick_ur_question'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/pick.jpg"));
 
 	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
 	 this.mGameAssetLoader.addImage("img/iPhone/set10_0001_story-flash-screen-bg.png");
@@ -117,7 +118,11 @@ LoadingScreen.prototype.setUp = function() {
 	 this.mGameAssetLoader.addImage("img/iPhone/set10_0002_screen-4-bg.png");
 	 this.mGameAssetLoader.addImage("img/iPhone/next-question-button.png");*/
 
-	this.flippingAnim();
+	this.mApplication.arrImagesTrack['percent0'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_0.jpg"));
+	this.mApplication.arrImagesTrack['percent10'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_10.jpg"));
+	this.mApplication.arrImagesTrack['percent50'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_50.jpg"));
+	this.mApplication.arrImagesTrack['percent90'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_90.jpg"));
+
 	var thatObject = this;
 	this.mGameAssetLoader.addProgressListener(function(e) {
 		thatObject.gameAssetLoadingProgress(e);
@@ -125,64 +130,33 @@ LoadingScreen.prototype.setUp = function() {
 	this.mGameAssetLoader.addCompletionListener(function() {
 		thatObject.gameAssetLoaded();
 	});
+
+	this.mGameSplashLoader.addCompletionListener(function() {
+		thatObject.splashAssetLoaded();
+	});
+	this.mGameSplashLoader.addProgressListener(function(e) {
+		thatObject.splashAssetLoadingProgress(e);
+	});
+
+	this.mGameSplashLoader.start();
+	//this.mGameAssetLoader.start();
+
+}
+
+LoadingScreen.prototype.splashAssetLoaded = function() {
+	document.getElementById('main_game_screen').style.display = "block"
+	document.getElementById('loading_script_tags').style.display = "none"
+
+	document.getElementById('loadingScreen_front').appendChild(this.mApplication.arrImagesTrack['percent0']);
 	this.mGameAssetLoader.start();
-
 }
 
-LoadingScreen.prototype.flippingAnim = function() {
-	/*
-	 var sLoadingImg1 = getAssetPath("img", "img/images/loading_anim_1.jpg");
-	 document.getElementById('loadingScreen_front').style.backgroundImage = "url( ' " + sLoadingImg1 + " ')";
-	 document.getElementById('loadingScreen_front').style.width = "177px";
-	 document.getElementById('loadingScreen_front').style.height = "252px";
-	 var sLoadingImg2 = getAssetPath("img", "img/images/loading_anim_2.jpg");
-	 document.getElementById('loadingScreen_back').style.backgroundImage = "url( ' " + sLoadingImg2 + " ')";
-	 document.getElementById('loadingScreen_back').style.width = "177px";
-	 document.getElementById('loadingScreen_back').style.height = "252px";
-	 */
+LoadingScreen.prototype.splashAssetLoadingProgress = function(e) {
 
-	/*$("#loadingScreen_front").flip({
-	 direction : 'rl',
-	 speed:100,
-	 color:'#fff',
-	 onBefore : function() {
-	 console.log('before starting the animation');
-	 },
-	 onAnimation : function() {
-	 console.log('in the middle of the animation');
-	 },
-	 onEnd : function() {
-	 console.log('when the animation has already ended');
-	 }
-	 })*/
-	/*
-	 var that  = this;
-	 $("#loadingScreen_back").stop().css({
-	 width : '0px',
-	 height : '' + that.height + 'px',
-	 marginLeft : '' + that.margin + 'px',
-	 opacity : '0.5'
-	 });
-
-	 $("#loadingScreen_front").stop().animate({width:'0px',height:''+that.height+'px',marginLeft:''+that.width+'px',opacity:'0.5'},{duration:500});
-	 window.setTimeout(function() {
-	 $("#loadingScreen_front").attr( "src", getAssetPath("img", "img/images/loading_anim_2.jpg"));
-	 $("#loadingScreen_front").stop().animate({width:''+that.width+'px',height:''+that.height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
-	 //$("#loadingScreen_back").stop().animate({width:''+that.width+'px',height:''+that.height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
-	 },500);*/
-	$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_0.jpg"));
 }
-/*$("#loadingScreen_front").click(function(){
- $(this).stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px',opacity:'0.5'},{duration:500});
- $("#reflection1").stop().animate({width:'0px',height:''+height+'px',marginLeft:''+margin+'px'},{duration:500});
- window.setTimeout(function() {
- $("#image2").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px',opacity:'1'},{duration:500});
- $("#reflection2").stop().animate({width:''+width+'px',height:''+height+'px',marginLeft:'0px'},{duration:500});
- },500);
- });*/
 
 LoadingScreen.prototype.gameAssetLoaded = function() {
-	console.log('loadinded' + document.getElementById('newName'));
+	//console.log('loadinded' + document.getElementById('newName'));
 	if (document.getElementById('newName') != null)
 		document.getElementById('newName').parentNode.removeChild(document.getElementById('newName'))
 	this.mAssetLoaded = true;
@@ -194,27 +168,9 @@ LoadingScreen.prototype.gameAssetLoadingProgress = function(e) {
 	var progressHighlighted = 0;
 	var tempNum = parseInt(e.completedCount / e.totalCount * 100) / 4;
 	var topLimit = Math.floor(tempNum);
-
-	//var sT = getAssetPath("img","img/splash/yellowProgBar.png")
-	/*for(var x=progressHighlighted;x<topLimit;x++)
-	{
-	document.getElementById('loadBar'+x).style.background="url('"+sT+"')";
-	}
-	progressHighlighted=topLimit;
-	setDivText(100, 70, 'Loading '+(parseInt(e.completedCount / e.totalCount * 100) >> 0) + ' %', "loadingScreen", "black", "24px", "MyriadPro-Bold");
-	document.getElementById('loadingScreentxt').className = "loaderText_css"
-	*/
-	//var percent = 0;
 	var mLoading = parseInt(e.completedCount / e.totalCount * 100);
-	//var mWidth = 174;
-	//var mHeight = 253;
-	//var mPercent = mLoading % 2;
-	//var finalVal = mLoading % 5
-	//var divideByTen = mLoading % 10
 	if (mLoading % 10 == 0) {
-		//var mName = 10;
 		var doAnim = false;
-
 		if (mLoading <= 10) {
 			this.mImageRow = 10;
 		} else if (mLoading <= 50) {
@@ -231,49 +187,48 @@ LoadingScreen.prototype.gameAssetLoadingProgress = function(e) {
 		},
 
 		* */
-		//if (mLoading == 10 || mLoading == 50 ||  mLoading == 80) {
+		if (mLoading == 10 || mLoading == 50 ||  mLoading == 80) {
 		var that = this;
 		if (!this.mAssetLoaded) {
+		//	console.log('flipin' + mLoading)
 			$("#loadingScreen_front").flip({
+
+				direction : 'rl',
+				speed : 50,
+				color : '#000',
+				onEnd : function() {
+					//console.log(mLoading+' that.mImageRow ::' + that.mImageRow)
+					while (document.getElementById('loadingScreen_front').hasChildNodes()) {
+						document.getElementById('loadingScreen_front').removeChild(document.getElementById('loadingScreen_front').lastChild);
+					}
+					document.getElementById('loadingScreen_front').appendChild(that.mApplication.arrImagesTrack['percent' + that.mImageRow]);
+					//$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_" + that.mImageRow + ".jpg"));
+				}
+			})
+		}
+		}
+	}
+
+}
+/*
+$("#loadingScreen").click(function ()
+{
+
+$("#loadingScreen_front").flip({
 
 				direction : 'rl',
 				speed : 100,
 				color : '#000',
 				onEnd : function() {
-					
-					$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_" + that.mImageRow + ".jpg"));
+					console.log(' that.mImageRow ::' + that.mImageRow)
+					while (document.getElementById('loadingScreen_front').hasChildNodes()) {
+						document.getElementById('loadingScreen_front').removeChild(document.getElementById('loadingScreen_front').lastChild);
+					}
+					document.getElementById('loadingScreen_front').appendChild(that.mApplication.arrImagesTrack['percent' + that.mImageRow]);
+					//$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_" + that.mImageRow + ".jpg"));
 				}
 			})
-		}
-		console.log(' percent ' + mLoading)
-		//}
+			
+			});
 
-		//document.getElementById('loadingScreen').style.backgroundImage = "url(" + sT + ")";
-		//document.getElementById('loadingScreen').style.height = mHeight + 'px'
-		//document.getElementById('loadingScreen').style.width = mWidth + 'px'
-		//	document.getElementById('loadingScreen').style.backgroundPosition = mWidth * finalVal + 'px ' + mHeight * this.mImageRow + 'px'
-
-	}
-	//percent = Math.round(parseInt(e.completedCount / e.totalCount * 100) / 10).toFixed(0)
-
-}
-
-$("#loadingScreen_front").click(function() {
-	console.log(" freak");
-	$("#loadingScreen_front").flip({
-		direction : 'rl',
-		speed : 10000,
-		color : '#000',
-		onBefore : function() {
-			console.log('before starting the animation');
-		},
-		onAnimation : function() {
-			console.log('in the middle of the animation');
-		},
-		onEnd : function() {
-			console.log('when the animation has already ended>>');
-			$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_90.jpg"));
-		}
-	})
-
-});
+*/

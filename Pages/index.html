@@ -34,8 +34,8 @@
 				return sTemp;
 			}
 
-			//var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.min.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
-			var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
+			var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
+			//var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
 
 			var arrScriptIndex = 0;
 			var arrDivNames = new Array('loading_script_tags', 'passwordScreen', 'loadingScreen', 'splashScreen', 'menuScreen', 'howtoplayScreen', 'carouselScreen', 'grey_bottom', 'gameplayScreen', 'correctanswerScreen', 'wronganswerScreen', 'winnerScreen')
@@ -63,8 +63,8 @@
 
 				} else {
 				document.onmouseover = function(evt){evt.preventDefault()};
-					document.getElementById('main_game_screen').style.display = "block"
-					document.getElementById('loading_script_tags').style.display = "none"
+					//document.getElementById('main_game_screen').style.display = "block"
+					//document.getElementById('loading_script_tags').style.display = "none"
 					_gMainApplication = new ApplicationWrapper();
 					_gMainApplication.setUp({
 						screenNames : arrDivNames

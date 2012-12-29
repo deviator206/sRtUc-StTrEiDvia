@@ -1408,7 +1408,7 @@ skins available:
 	position :absolute;
 	margin-left: 700px;
 	left: 217px;
-top: 706px
+top:805px
 }
 /*.allinone_carousel_SM.powerful .contentHolderUnit {
 	position:absolute;
@@ -1557,7 +1557,7 @@ skins available:
 }
 
 .contentHolderUnit img{
-	width:210px !important;
+	/*width:210px !important;*/
 }
 
 

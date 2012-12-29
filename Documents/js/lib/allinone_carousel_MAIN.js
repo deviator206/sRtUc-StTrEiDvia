@@ -185,7 +185,7 @@
 				  
 				  if ( (options.autoPlay>0 && total_images>1 && !current_obj.mouseOverBanner && !current_obj.fastForwardRunning) || (current_obj.current_img_no!=current_obj.img_no_where_to_stop && current_obj.fastForwardRunning) ) {
 					  clearTimeout(current_obj.timeoutID);
-					  current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(direction,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
+					  //current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(direction,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
 				  }
 				 // jQuery('#log').html(current_obj.current_img_no+' == '+current_obj.img_no_where_to_stop);
 				  if (current_obj.current_img_no==current_obj.img_no_where_to_stop && current_obj.fastForwardRunning) {
@@ -254,7 +254,7 @@
 	
 	
 	$.fn.allinone_carousel = function(options) {
-	callback_function_carousel = options.callback;
+	callback_function_carousel_Main = options.callback;
 	
 		var options = $.extend({},$.fn.allinone_carousel.defaults, options);
 
@@ -527,7 +527,7 @@
 			
 				if (!current_obj.slideIsRunning && !current_obj.fastForwardRunning) {
 					var i=jQuery(this).attr('rel');
-					
+					callback_function_carousel_Main(i);
 					/*if (i!=current_obj.current_img_no) {
 						current_obj.isVideoPlaying=false;
 						//alert (i+'  --  '+current_obj.current_img_no+'  --  '+total_images);					
@@ -546,7 +546,7 @@
 						else
 						{*/
 							
-							callback_function_carousel(i);
+							
 						//}
 					//}
 				}
@@ -716,7 +716,7 @@
 			//first start autoplay
 			jQuery(bottomNavButs[current_obj.current_img_no]).addClass('bottomNavButtonON');
 			if (options.autoPlay>0 && total_images>1) {
-				current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},options.autoPlay*1000);
+				current_obj.timeoutID=setTimeout(function(){ allinone_carousel_navigation(1,options,current_obj,bottomNavButs,imgs,allinone_carousel_container,contentHolderUnitOrigWidth,contentHolderUnitOrigHeight,total_images,allinone_carousel_playOver,allinone_carousel_elementTitle)},100);
 			}		
 			
 			
@@ -733,8 +733,8 @@
 			height:384,
 			autoPlay:4,
 			numberOfVisibleItems:7, // odd number: 3,5,7,9
-			elementsHorizontalSpacing:120,
-			elementsVerticalSpacing:20,
+			elementsHorizontalSpacing:190,
+			elementsVerticalSpacing:30,
 			verticalAdjustment:0,
 			animationTime:0.8,
 			easing:'easeOutQuad',
