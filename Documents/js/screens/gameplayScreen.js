@@ -48,4 +48,6 @@ GamePlayScreen.prototype.setUp = function()
 		that.mApplication.answerSelected(4)
 	};
 	
+	
+	
 }

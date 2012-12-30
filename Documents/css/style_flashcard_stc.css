@@ -773,10 +773,29 @@ textarea {
 	height: 35px;
 	width: 65px;
 	bottom: 19px;
-	right: 83px;
+	right: 62px;
 	float: right;
 }
 
+
+.helpButtonFooter{
+	position: absolute;
+	height: 35px;
+	width: 65px;
+	bottom: 19px;
+right: 170px;
+	float: right;
+}
+
+
+.introButtonFooter{
+	position: absolute;
+	height: 35px;
+	width: 65px;
+	bottom: 19px;
+	right: 280px;
+	float: right;
+}
 /* Screen 4 */
 
 /* Screen 5 */
@@ -927,7 +946,46 @@ textarea {
 }
 
 
-/* */
+.overlayScreenCSS_ForQuestion {
+top: 328px;
+height: 638px;
+width: 900px;
+display: none;
+position: absolute;
+z-index: 10;
+z-index: 300;
+margin-left: -11px;
+}
+
+.overlayScreenCSS_ForQuestion1 {
+	
+height: 636px;
+width: 900px;
+display: none;
+position: absolute;
+z-index: 10;
+background-color: black;
+opacity: 0.7;
+
+}
+
+.opaqueScreenCSS_ForQuestion {
+	font-family: verdana,arial,helvetica,sans-serif;
+	color: white;
+	background-color:#9C9999;
+	font-size: 34px;
+	width: 420px;
+	height: 103px;
+	position: absolute;
+	top: 170px;
+	left: 236px;
+	display: none;
+	text-align:center;
+	padding-top:78px;
+	font-style:24px;
+	opacity: 0.95;
+	
+}
 
 
 
@@ -1406,9 +1464,8 @@ skins available:
 #SM_carouselParent_MINI
 {
 	position :absolute;
-	margin-left: 700px;
-	left: 217px;
-top:805px
+	margin-top:  -131px;
+	margin-left: 665px;
 }
 /*.allinone_carousel_SM.powerful .contentHolderUnit {
 	position:absolute;

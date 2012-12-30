@@ -34,11 +34,11 @@
 				return sTemp;
 			}
 
-			var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
-			//var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
+			//var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
+			var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
 
 			var arrScriptIndex = 0;
-			var arrDivNames = new Array('loading_script_tags', 'passwordScreen', 'loadingScreen', 'splashScreen', 'menuScreen', 'howtoplayScreen', 'carouselScreen', 'grey_bottom', 'gameplayScreen', 'correctanswerScreen', 'wronganswerScreen', 'winnerScreen')
+			var arrDivNames = new Array('loading_script_tags', 'overlayScreen_ForQuestion','passwordScreen', 'loadingScreen', 'splashScreen', 'menuScreen', 'howtoplayScreen', 'carouselScreen', 'grey_bottom', 'gameplayScreen', 'correctanswerScreen', 'wronganswerScreen', 'winnerScreen')
 			function makeAllInvisible() {
 				for (var i = 0; i < arrDivNames.length; i++)
 					document.getElementById(arrDivNames[i]).style.display = 'none'
@@ -253,7 +253,9 @@
 					<div id="winnerScreen" class="screen">
 
 					</div>
+					<div id="allinone_carousel_charming_SM_main">
 					<div id="allinone_carousel_charming_SM"></div>
+					</div>
 					<div id="grey_bottom" class="greyBottom">
 						<div class="timeLeftDiv">
 							<span class="footerTxt">Time left:&nbsp;</span><span id="timer_txt" class="footerNum">00</span>
@@ -262,13 +264,29 @@
 							<span class="footerTxt">Points:&nbsp;</span><span  id="score_txt" class="footerNum">000</span>
 						</div>
 						<div class="backButtonDiv">
+							<div id='carousel_Intro'class="introButtonFooter button">
+								Intro
+							</div>
+							<div id='carousel_Help'class="helpButtonFooter button">
+								Help
+							</div>
 							<div id='carousel_back'class="backButtonFooter button">
 								Back
 							</div>
 						</div>
+						
 					</div>
+					
+					<div id="overlayScreen_ForQuestion" class="overlayScreenCSS_ForQuestion">
+					<div id="opaqueScreen_bg_forQuestion" class="overlayScreenCSS_ForQuestion1"></div>
+					<div id="opaqueScreen_ForQuestion" class="opaqueScreenCSS_ForQuestion">
+						Please try again...
+					</div>
+					
+				</div>
 
 				</div>
+				
 			</div>
 
 		</div>

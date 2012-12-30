@@ -3,6 +3,9 @@
  */
 
 ApplicationWrapper.prototype.nextTransition = function() {
+	document.getElementById('carousel_Intro').style.display = "none";
+	document.getElementById('carousel_Help').style.display = "none";
+
 	switch(this.nGameState) {
 		case 0:
 		/*this.nGameState = 10;
@@ -37,9 +40,13 @@ ApplicationWrapper.prototype.nextTransition = function() {
 			this.mCurrentScreen = new GamePlayScreen(this)
 			break;
 		case 100:
+			document.getElementById('carousel_Intro').style.display = "block";
+			document.getElementById('carousel_Help').style.display = "block";
 			this.mCurrentScreen = new CorrectAnswerScreen(this)
 			break;
 		case 110:
+			document.getElementById('carousel_Intro').style.display = "block";
+			document.getElementById('carousel_Help').style.display = "block";
 			this.mCurrentScreen = new WrongAnswerScreen(this)
 			break;
 		case 120:
@@ -77,13 +84,13 @@ ApplicationWrapper.prototype.hideCarousel = function() {
 		////console.log(document.getElementById('SM_carouselParent_MINI').parentNode);
 		////console.log('::'+document.getElementById('main_game_screen'));
 
-		document.getElementById('main_game_screen').removeChild(document.getElementById('SM_carouselParent_MINI'));
+		document.getElementById('allinone_carousel_charming_SM_main').removeChild(document.getElementById('SM_carouselParent_MINI'));
 	}
 
 	if (document.getElementById('allinone_carousel_charming_SM') == null) {
 		var newDIv = document.createElement('div');
 		newDIv.setAttribute('id', 'allinone_carousel_charming_SM');
-		document.getElementById('main_game_screen').appendChild(newDIv);
+		document.getElementById('allinone_carousel_charming_SM_main').appendChild(newDIv);
 	}
 	document.getElementById('allinone_carousel_charming_SM').innerHTML = "";
 
@@ -92,7 +99,7 @@ ApplicationWrapper.prototype.hideCarousel = function() {
 ApplicationWrapper.prototype.loadMiniCarousel = function() {
 	//console.log(this.mQuestionAnswered)
 
-	if (this.mQuestionAnswered.length < config.questionSet.length ) {
+	if (this.mQuestionAnswered.length < config.questionSet.length) {
 		this.mCarouselQuestionTrack = new Array();
 		this.hideCarousel();
 		var sContent = '<div class="myloader_SM"></div><ul  id ="carousel_ul_li_holder_SM" class="allinone_carousel_list_SM" style="background-color:#999966;">'
@@ -101,7 +108,7 @@ ApplicationWrapper.prototype.loadMiniCarousel = function() {
 		for (var i = 0; i < config.questionSet.length; i++) {
 			if (this.mQuestionAnswered.indexOf(Number(i)) == -1) {
 				this.mCarouselQuestionTrack.push(i);
-				var j= i+1;
+				var j = i + 1;
 				var ele = document.createElement('li');
 				ele.setAttribute('id', "li__ele_SM" + i)
 				document.getElementById('carousel_ul_li_holder_SM').appendChild(ele);
@@ -110,9 +117,7 @@ ApplicationWrapper.prototype.loadMiniCarousel = function() {
 				mObj.setAttribute('width', "50");
 				mObj.setAttribute('class', "reflectBelow");
 				ele.appendChild(mObj);
-			}
-			else
-			{
+			} else {
 				//console.log(i+ 'INDX :FOUND: ' + this.mQuestionAnswered.indexOf(Number(i)))
 			}
 		}
@@ -132,7 +137,7 @@ ApplicationWrapper.prototype.loadMiniCarousel = function() {
 		document.getElementById('SM_carouselParent_MINI').style.display = 'block';
 
 	} else {
-		
+
 		this.hideCarousel();
 		this.nGameState = 130;
 		this.nextTransition()
@@ -241,6 +246,35 @@ function ApplicationWrapper() {
 	return this;
 }
 
+ApplicationWrapper.prototype.closeQuestionOverlay = function() {
+	document.getElementById('overlayScreen_ForQuestion').style.display = "none";
+	document.getElementById('opaqueScreen_ForQuestion').style.display = "none";
+	document.getElementById('opaqueScreen_bg_forQuestion').style.block = "none";
+	//DOMWrapper.nextTransition();
+}
+
+ApplicationWrapper.prototype.showQuestionOverlay = function() {
+	if (document.getElementById('opaqueScreen_ForQuestion').innerHTML == '-1') {
+		var sContent = 'TRY AGAIN SAME QUESTION'
+		document.getElementById('opaqueScreen_ForQuestion').innerHTML = sContent;
+	}
+	document.getElementById('overlayScreen_ForQuestion').style.display = "block";
+	document.getElementById('opaqueScreen_ForQuestion').style.display = "block";
+	document.getElementById('opaqueScreen_ForQuestion').style.zIndex = 9;
+	document.getElementById('opaqueScreen_bg_forQuestion').style.display = "block";
+	document.getElementById('opaqueScreen_bg_forQuestion').style.zIndex = 7;
+
+	document.getElementById('overlayScreen_ForQuestion').onclick = function() {
+		_gMainApplication.closeQuestionOverlay();
+	}
+}
+
+$('#carousel_Intro').click(function() {
+	_gMainApplication.showQuestionOverlay();
+})
+$('#carousel_Help').click(function() {
+	_gMainApplication.showQuestionOverlay();
+})
 /***
  HELPER
  **/

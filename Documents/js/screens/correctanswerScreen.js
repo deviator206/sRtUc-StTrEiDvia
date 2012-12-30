@@ -58,7 +58,6 @@ CorrectAnswerScreen.prototype.setUp = function() {
 	var mObj = this.mApplication.arrImagesTrack[config.questionSet[this.mApplication.nQuestionIndex].img_url]
 	document.getElementById('imgHolder_In_CorrectAnswerScreen').appendChild(mObj);
 
-	
-
 	this.mApplication.loadMiniCarousel();
+
 }
