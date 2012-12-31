@@ -4,7 +4,7 @@
 
 	// navigation
 	function allinone_carousel_navigation_SMALL(direction, options, current_obj, bottomNavButs, imgs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight, total_images, allinone_carousel_playOver, allinone_carousel_elementTitle) {
-
+		
 		var new_width;
 		var new_height;
 		var new_left;
@@ -39,6 +39,7 @@
 
 		//animate left wing
 		aux_img_no = current_obj.current_img_no;
+		//console.log(':Visible: '+Math.floor(options.numberOfVisibleItems / 2));
 		for ( m = 1; m <= Math.floor(options.numberOfVisibleItems / 2); m++) {
 			current_obj.currentZ_index--;
 			aux_img_no = set_img_no_SMALL(aux_img_no, -1, total_images);
@@ -53,11 +54,13 @@
 					//last_currentImg = jQuery('#contentHolderUnit_'+last_aux_img_no);
 					last_currentImg = jQuery('#SM_contentHolderUnit_' + last_aux_img_no, allinone_carousel_container);
 					//last_currentImg.css('z-index',current_obj.currentZ_index-1);
+					console.log('changing Left')	
 					new_height = contentHolderUnitOrigHeight - 2 * (m + 1) * options.elementsVerticalSpacing;
 					new_width = parseInt(new_height * current_obj.aspectOrig);
 					new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - (m + 1) * options.elementsHorizontalSpacing;
 					new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing;
-				
+					new_left = new_left ;
+					
 					animateDiv_SMALL(last_currentImg, new_left, new_top, new_width, new_height, 0, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 				} else {//direction=-1
 					new_height = contentHolderUnitOrigHeight - 2 * (m + 1) * options.elementsVerticalSpacing;
@@ -66,7 +69,7 @@
 
 					new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - (m + 1) * options.elementsHorizontalSpacing;
 					new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing;
-				
+					
 					current_obj.currentImg.css('left', new_left);
 					current_obj.currentImg.css('top', new_top);
 					current_obj.currentImg.css('opacity', 0);
@@ -81,7 +84,12 @@
 			new_width = parseInt(new_height * current_obj.aspectOrig);
 			new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) - m * options.elementsHorizontalSpacing;
 			new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing;
-
+			if(m ==2)
+			{
+			//console.log(' SECOND ELEMENT checking<<:'+m+':aux_img_no '+aux_img_no+" new_left  "+new_left );	
+				new_left += 4;
+			}
+			
 			animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, false, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 
 		}
@@ -100,7 +108,6 @@
 				if (direction === 1) {
 					resizeDiv_SMALL(current_obj.currentImg, (m + 1), options, contentHolderUnitOrigHeight, current_obj);
 					//alert (m+'--'+aux_img_no)
-					
 					current_obj.currentImg.css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + (m + 1) * options.elementsHorizontalSpacing - current_obj.currentImg.width()) + 'px');
 					current_obj.currentImg.css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (m + 1) * options.elementsVerticalSpacing + 'px');
 					current_obj.currentImg.css('opacity', 0);
@@ -124,7 +131,12 @@
 			new_width = parseInt(new_height * current_obj.aspectOrig);
 			new_left = parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + m * options.elementsHorizontalSpacing - new_width);
 			new_top = parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + m * options.elementsVerticalSpacing;
-
+			if(m ==2)
+			{
+				new_left -= 4;	
+			}
+			
+			
 			if (m == Math.floor(options.numberOfVisibleItems / 2))
 				animateDiv_SMALL(current_obj.currentImg, new_left, new_top, new_width, new_height, 1, true, direction, current_obj, options, allinone_carousel_elementTitle, imgs, total_images, allinone_carousel_playOver, bottomNavButs, allinone_carousel_container, contentHolderUnitOrigWidth, contentHolderUnitOrigHeight);
 			else
@@ -420,8 +432,8 @@ var bannerControls
 						if (total_images <= Math.ceil(options.numberOfVisibleItems / 2)) {
 							current_obj.currentZ_index--;
 							resizeDiv_SMALL(contentHolderUnit, (total_images - 1), options, contentHolderUnitOrigHeight, current_obj);
-							
-
+								
+							console.log(':: '+contentHolderUnitOrigWidth);
 							contentHolderUnit.css('left', parseInt((options.width - contentHolderUnitOrigWidth) / 2) + (contentHolderUnitOrigWidth + (total_images - 1) * options.elementsHorizontalSpacing - contentHolderUnit.width()) + 'px');
 							contentHolderUnit.css('top', parseInt(options.height - contentHolderUnitOrigHeight) - options.verticalAdjustment + (total_images - 1) * options.elementsVerticalSpacing + 'px');
 							contentHolderUnit.css('z-index', current_obj.currentZ_index);
