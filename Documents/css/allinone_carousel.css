@@ -390,23 +390,34 @@ skins available:
 
 .allinone_carousel_SM.powerful .leftNav {
 	position:absolute;
-	width:20px;
-	height:10px;
-	right: 152px;
-bottom: 32px;
+	width: 34px;
+	height: 46px;
+	right: 154px;
+	top: -23px;
+	background-color: white;
 	cursor: pointer;
+}
+
+.leftNav_img
+{
+	margin-top: 10px;
+	margin-left: 15px;
 }
 
 .allinone_carousel_SM.powerful .rightNav {
 	position:absolute;
-	width:20px;
-	height:10px;
-	
 	left: 155px;
 	right: 170px;
-	bottom: 32px;
-
+top: -23px;
+	width: 34px;
+	height: 46px;
+	background-color: white;
 	cursor: pointer;
+}
+
+.rightNav_img
+{
+	margin-top: 10px;
 }
 
 

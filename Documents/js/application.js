@@ -195,6 +195,7 @@ ApplicationWrapper.prototype.answerSelected = function(nSelected) {
 	if (nSelected == config.questionSet[this.nQuestionIndex].correct_answer) {
 		this.nQuizScore = this.nQuizScore + this.nCorrectAnswer
 		this.nGameState = 100;
+		document.getElementById('score_txt').innerHTML = '' + this.nQuizScore;
 
 	} else {
 		this.nGameState = 110;

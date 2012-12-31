@@ -268,7 +268,8 @@ var bannerControls
 			
 			document.getElementById('carousel_leftNav_sm').appendChild(_gMainApplication.arrImagesTrack['leftNav_Carousel_sm']);
 			document.getElementById('carousel_rightNav_sm').appendChild(_gMainApplication.arrImagesTrack['rightNav_Carousel_sm']);
-			
+			_gMainApplication.arrImagesTrack['leftNav_Carousel_sm'].className = "leftNav_img";
+			_gMainApplication.arrImagesTrack['rightNav_Carousel_sm'].className = "rightNav_img";
 			
 
 			//the elements

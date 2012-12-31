@@ -270,6 +270,8 @@
 			document.getElementById('carousel_leftNav').appendChild(_gMainApplication.arrImagesTrack['leftNav_Carousel']);
 			document.getElementById('carousel_rightNav').appendChild(_gMainApplication.arrImagesTrack['rightNav_Carousel']);
 					
+					_gMainApplication.arrImagesTrack['leftNav_Carousel'].className ="leftNav_big_img";
+					_gMainApplication.arrImagesTrack['rightNav_Carousel'].className ="rightNav_big_img";
 
 			
 			//the elements

@@ -7,7 +7,7 @@ function LoadingScreen(app) {
 	this.mDivName = "loadingScreen"
 	this.mGameSplashLoader = null;
 	this.mImageRow = 10;
-
+	this.loadingProgress = new Array(-1, -1, -1);
 	this.mAssetLoaded = false;
 
 	this.setUp()
@@ -120,7 +120,7 @@ LoadingScreen.prototype.setUp = function() {
 
 	this.mApplication.arrImagesTrack['percent0'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_0.jpg"));
 	this.mApplication.arrImagesTrack['percent10'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_10.jpg"));
-	this.mApplication.arrImagesTrack['percent50'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_50.jpg"));
+	this.mApplication.arrImagesTrack['percent50'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_50.png"));
 	this.mApplication.arrImagesTrack['percent90'] = this.mGameSplashLoader.addImage(getAssetPath("img", "img/images/loading_anim_90.jpg"));
 
 	var thatObject = this;
@@ -165,70 +165,43 @@ LoadingScreen.prototype.gameAssetLoaded = function() {
 }
 
 LoadingScreen.prototype.gameAssetLoadingProgress = function(e) {
-	var progressHighlighted = 0;
-	var tempNum = parseInt(e.completedCount / e.totalCount * 100) / 4;
-	var topLimit = Math.floor(tempNum);
-	var mLoading = parseInt(e.completedCount / e.totalCount * 100);
-	if (mLoading % 10 == 0) {
-		var doAnim = false;
-		if (mLoading <= 10) {
-			this.mImageRow = 10;
-		} else if (mLoading <= 50) {
-			this.mImageRow = 50;
-		} else {
-			this.mImageRow = 90;
-		}
-		/*
-		onBefore : function() {
-		console.log('before starting the animation');
-		},
-		onAnimation : function() {
-		console.log('in the middle of the animation');
-		},
 
-		* */
-		if (mLoading == 10 || mLoading == 50 ||  mLoading == 80) {
+	var mLoading = parseInt(e.completedCount / e.totalCount * 100);
+	var doAnim = false;
+	var percentage = Number( Math.round(mLoading / 10))
+	
+
+	if (percentage == 1 && Number(this.loadingProgress[0]) == -1) {
+		doAnim = true;
+		this.mImageRow = this.loadingProgress[0] = 10;
+	} else if (percentage == 5 && this.loadingProgress[1] == -1) {
+		doAnim = true;
+		this.mImageRow = this.loadingProgress[1] = 50;
+
+	} else if (percentage == 9 && this.loadingProgress[2] == -1) {
+		doAnim = true;
+		this.mImageRow = this.loadingProgress[2] = 90;
+
+	}
+	//console.log(percentage + " :: " + doAnim + " :: " + this.loadingProgress[0] + " > " + typeof (this.loadingProgress[0]))
+	if (doAnim) {
+		console.log(" showing " + this.mImageRow)
 		var that = this;
 		if (!this.mAssetLoaded) {
-		//	console.log('flipin' + mLoading)
 			$("#loadingScreen_front").flip({
 
 				direction : 'rl',
 				speed : 50,
 				color : '#000',
 				onEnd : function() {
-					//console.log(mLoading+' that.mImageRow ::' + that.mImageRow)
 					while (document.getElementById('loadingScreen_front').hasChildNodes()) {
 						document.getElementById('loadingScreen_front').removeChild(document.getElementById('loadingScreen_front').lastChild);
 					}
 					document.getElementById('loadingScreen_front').appendChild(that.mApplication.arrImagesTrack['percent' + that.mImageRow]);
-					//$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_" + that.mImageRow + ".jpg"));
 				}
 			})
 		}
-		}
+
 	}
 
 }
-/*
-$("#loadingScreen").click(function ()
-{
-
-$("#loadingScreen_front").flip({
-
-				direction : 'rl',
-				speed : 100,
-				color : '#000',
-				onEnd : function() {
-					console.log(' that.mImageRow ::' + that.mImageRow)
-					while (document.getElementById('loadingScreen_front').hasChildNodes()) {
-						document.getElementById('loadingScreen_front').removeChild(document.getElementById('loadingScreen_front').lastChild);
-					}
-					document.getElementById('loadingScreen_front').appendChild(that.mApplication.arrImagesTrack['percent' + that.mImageRow]);
-					//$('#loadingScreen_front').attr('src', getAssetPath("img", "img/images/loading_anim_" + that.mImageRow + ".jpg"));
-				}
-			})
-			
-			});
-
-*/
