@@ -26,6 +26,7 @@ ApplicationWrapper.prototype.nextTransition = function() {
 		case 50:
 			//how to play
 			this.nGameState = 60;
+			clearInterval(this.nQuizTimer)
 			this.mCurrentScreen = new HowToPlayScreen(this)
 			break;
 		case 70:
@@ -33,6 +34,7 @@ ApplicationWrapper.prototype.nextTransition = function() {
 			this.hideCarousel();
 			this.nGameState = 80;
 			clearInterval(this.nQuizTimer)
+			document.getElementById('carousel_back').innerHTML="Back"
 			this.mCurrentScreen = new CarouselScreen(this)
 			break;
 		case 90:
@@ -271,10 +273,15 @@ ApplicationWrapper.prototype.showQuestionOverlay = function() {
 }
 
 $('#carousel_Intro').click(function() {
-	_gMainApplication.showQuestionOverlay();
+	//_gMainApplication.showQuestionOverlay();
+	_gMainApplication.hideCarousel();
+	_gMainApplication.setGameState(20);
+	_gMainApplication.nextTransition();
 })
 $('#carousel_Help').click(function() {
-	_gMainApplication.showQuestionOverlay();
+	_gMainApplication.hideCarousel();
+	_gMainApplication.setGameState(50);
+	_gMainApplication.nextTransition();
 })
 /***
  HELPER

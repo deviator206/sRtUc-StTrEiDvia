@@ -396,7 +396,7 @@ textarea {
 .backButtonFooter{
 	position: absolute;
 	height: 35px;
-	width: 65px;
+	width: 80px;
 	bottom: 19px;
 	right: 62px;
 	float: right;
@@ -408,7 +408,7 @@ textarea {
 	height: 35px;
 	width: 65px;
 	bottom: 19px;
-right: 170px;
+right: 175px;
 	float: right;
 }
 
@@ -416,7 +416,7 @@ right: 170px;
 .introButtonFooter{
 	position: absolute;
 	height: 35px;
-	width: 65px;
+	width: 95px;
 	bottom: 19px;
 	right: 280px;
 	float: right;
@@ -562,7 +562,8 @@ right: 170px;
 .conMsg{
 	position:relative;
 	height:35px;
-	width:605px;
+	/*width:605px;*/
+	width:638px;
 	top:210px;
 	left:90px;
 	color:#5376A1;
