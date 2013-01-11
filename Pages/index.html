@@ -34,8 +34,8 @@
 				return sTemp;
 			}
 
-			var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
-			//var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
+			//var arrScriptTags = new Array('css/style_flashcard_stc.css','js/lib/jquery-1.7.2.min.js','js/lib/jquery.flip.js','js/lib/jquery-ui-custom-min.js','js/lib/jquery-ui-touch-punch-min.js','js/lib/allinone_carousel.js','js/lib/allinone_carousel_MAIN.js','js/lib/PxLoader.js','js/lib/PxLoaderImage.js','js/model.js','js/screens/passwordScreen.js','js/screens/loadingScreen.js','js/screens/splashScreen.js','js/screens/menuScreen.js','js/screens/howtoplayScreen.js','js/screens/carouselScreen.js','js/screens/gameplayScreen.js','js/screens/correctanswerScreen.js','js/screens/wronganswerScreen.js','js/screens/winnerScreen.js','js/application.js');
+			var arrScriptTags = new Array('css/style_flashcard_stc.css', 'js/lib/jquery-1.7.2.min.js', 'js/app-flashcard.js');
 
 			var arrScriptIndex = 0;
 			var arrDivNames = new Array('loading_script_tags', 'overlayScreen_ForQuestion','passwordScreen', 'loadingScreen', 'splashScreen', 'menuScreen', 'howtoplayScreen', 'carouselScreen', 'grey_bottom', 'gameplayScreen', 'correctanswerScreen', 'wronganswerScreen', 'winnerScreen')
@@ -149,7 +149,7 @@
 					<span style="margin-left: 325px;
 					margin-top: 240px;
 					position: absolute;
-					font-size: 50px;">Initializing...</span>
+					font-size: 50px;"></span>
 				</div>
 				<div id='main_game_screen' class="mainDiv" style="display:none;">
 					<div id='passwordScreen'>
@@ -159,18 +159,6 @@
 							 
 					</div>
 					<div id="splashScreen" class="screen">
-						<div id="25yrslogo" class="headerlogo"></div>
-						<div class="screen1Txt">
-							To celebrate Accenture's 25 years in India, we've created Secrets of
-							<br/>
-							Success to demonstrate the successes our clients have achieved here
-							<br />
-							and abroad during that time. It's simple to play, but a challenge to win.
-							<br />
-							Just pich a card. You will be presented with a question and four possible
-							<br />
-							answers. You'll receive 10 points for each correct answer.
-						</div>
 						<div class="eneterGameButton button" id="enterGame">
 							Enter the game
 						</div>
@@ -192,34 +180,8 @@
 
 					<!-- HOW TO PLAY -->
 					<div id="howtoplayScreen" class="screen">
-						<div class="howToPlayDiv">
-							<b>How to play</b>
-							<br />
-							<br />
-							<ol style="margin-left: -18px;">
-								<li>
-									Anser few questions and make your way through the game
-								</li>
-								<li>
-									Choose the right answer from the givenset of options
-								</li>
-								<li>
-									The clock keeps ticking away as you answer
-								</li>
-								<li>
-									Every correct answer gets you points
-								</li>
-								<li>
-									There is no negative marking for the wrong answer
-								</li>
-								<li>
-									Maximum correct answers will get you maximum points
-								</li>
-							</ol>
-							<br />
-							<p>
-								So are you ready to get the story started?
-							</p>
+						<div id="new_add_on_how_to_play" class="howToPlayDiv">
+							
 						</div>
 						<div class="buttonsDivPage3">
 							<div id="instruction_back" class="backButton button">
@@ -229,17 +191,19 @@
 								Play now
 							</div>
 						</div>
-						<div id="carousel_3_img" class="caraousalCardImgPage3"></div>
+						
 					</div>
 
 					<!-- CAROUSEL SCREEN -->
 					<div id="carouselScreen" class="screen">
+						<div id="carouselMessage" >Please click on a flash card of your choice to play</div>
 						<div class="caraousalDiv_2">
 							<div id="containingDiv">
 								<div id="allinone_carousel_charming"></div>
 							</div>
 
 						</div>
+						
 					</div>
 
 					<!-- QUESTION -->

@@ -567,12 +567,18 @@ textarea {
 }
 
 .eneterGameButton{
-	position:absolute;
+	/*position:absolute;
 	height:40px;
 	width:135px;
 	bottom:55px;
 	right:72px;
-	float:left;
+	float:left;*/
+	position: absolute;
+height: 40px;
+width: 135px;
+bottom: 140px;
+right: 274px;
+float: left;
 }
 /* Screen 1 end */
 
@@ -675,11 +681,22 @@ textarea {
 
 .buttonsDivPage3{
 	position: absolute;
-    bottom: 30px;
-	left:90px;
+    /*bottom: 30px;
+	left:90px;*/
+	bottom: 88px;
+left: 492px;
 	width:200px;
 	height:40px;
 	float:left;
+}
+
+
+#carouselMessage{
+	position: absolute;
+margin-left: 125px;
+margin-top: 45px;
+font-weight: bold;
+font-size: 26px;
 }
 
 .caraousalCardImgPage3{
@@ -1001,10 +1018,6 @@ cursor: pointer;
 color: white;
 
 }
-
-
-
-
 
 
 

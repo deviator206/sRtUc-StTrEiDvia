@@ -105,7 +105,12 @@ LoadingScreen.prototype.setUp = function() {
 	this.mApplication.arrImagesTrack['rightNav_Carousel_sm'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/rightNav.png"));
 
 	this.mApplication.arrImagesTrack['pick_ur_question'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/iPhone/pick.jpg"));
-
+	
+	
+	
+	this.mApplication.arrImagesTrack['Introduction_25-years'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/images/Introduction_25-years.png"));
+	
+	this.mApplication.arrImagesTrack['How-to-Play-for-the-25-years'] = this.mGameAssetLoader.addImage(getAssetPath("img", "img/images/How-to-Play-for-the-25-years.png"));
 	/*this.mGameAssetLoader.addImage("img/iPhone/set10_0004_Layer-0.png");
 	 this.mGameAssetLoader.addImage("img/iPhone/set10_0001_story-flash-screen-bg.png");
 	 this.mGameAssetLoader.addImage("img/iPhone/playthegame-button.png");
